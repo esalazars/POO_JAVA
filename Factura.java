@@ -5,14 +5,14 @@
 import java.util.*;
 public class Factura {
     //Atributos de clase
-    Double IVA = 0.19;
-    int consecutivo =0; // variable de autoincremento para asignar el código de la factura cuando se cree una.
+    private static Double IVA = 0.19;
+    private static int consecutivo =0; // variable de autoincremento para asignar el código de la factura cuando se cree una.
     //Atributos de instancia
-    String fecha;
-    String codigo;
-    Double subtotal;
-    Double total;
-    ArrayList<Tiquete> tiquete;
+    private String fecha;
+    private String codigo;
+    private Double subtotal;
+    private  Double total;
+    private ArrayList<Tiquete> tiquete = new ArrayList<>();
     //Cliente cliente = new Cliente();
     
     public Factura(){
@@ -34,5 +34,16 @@ public class Factura {
     public ArrayList generarFactura(){
         //Crear un for con los atributos de tiquete
         return tiquete;
+    }
+    
+    public double calcularTotal(){
+    /*Se emplea un for para tomar el precio de 
+        cada tiquete en la lista de tiquetes
+        y así sumarlos para obtener un subtotal y u total*/    
+    for(int i=0 ; i < tiquete.size();i++){
+        this.subtotal += tiquete.get(i).getPrecio();   
+    }
+    this.total = this.subtotal + this.subtotal*IVA;
+        return this.total;
     }
 }
