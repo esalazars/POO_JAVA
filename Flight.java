@@ -3,18 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poo_fly;
+package POO_JAVA;
 
 /**
  *
- * @author user
+ * @author user Eladio Salazar Suarez
  */
-/*
 
- Author= Eladio Slazar Suarez
-
-
-*/
 import java.util.*;
 import java.util.Calendar;
 
@@ -31,10 +26,11 @@ public final class Flight{//Ya no hay herencia
  	private Calendar boardingTime;
  	private String airline;
  	private String boardingDoor;
- 	private ArrayList<String> seats;
+ 	private List<String> seats;
  	private String airplane;
  	private String tiquet;
-        public static ArrayList<Flight> flights;
+    //Lista de vuelos creados
+    public static HashMap<String, Flight> flights = new HashMap<String, Flight>();
 
  	public Flight(){//Constructor por defecto
             this.setCode("0000");
@@ -49,10 +45,34 @@ public final class Flight{//Ya no hay herencia
             this.setBoardingTime(Calendar.getInstance());
             this.setAirline("Sin implementar");
             this.setBoardingDoor("A1");
-            this.setSeats(ArrayList(["A1","A2","A3"]));
+            List<String> lista = new ArrayList<>(Arrays.asList("A1","A2","A3"));
+            this.setSeats(lista);
             this.setAirplane("Airbus 270");
-            this.setTiquet("Sin implementar");
+            this.setTiquets("Sin implementar");
+            flights.put("0000", this);
  	};
+
+    public Flight(String code, double price, int maxPassengers, String departureCity,
+                    String arrivalCity, String departureAirport, String arrivalAirport,
+                    Calendar departureDate, Calendar arrivalDate, Calendar boardingTime, 
+                    String airline, String boardingDoor, List<String> seats, 
+                    String airplane, String tiquet){//Constructor preferido
+            this.setCode(code);
+            this.setPrice(price);
+            this.setMaxPassengers(maxPassengers);
+            this.setDepartureCity(departureCity);
+            this.setArrivalCity(arrivalCity);
+            this.setDepartureAirport(departureAirport);
+            this.setArrivalAirport(arrivalAirport);
+            this.setDepartureDate(departureDate);
+            this.setArrivalDate(arrivalDate);
+            this.setBoardingTime(boardingTime);
+            this.setAirline(airline);
+            this.setBoardingDoor(boardingDoor);
+            this.setSeats(seats);
+            this.setAirplane(airplane);
+            this.setTiquets(tiquet);
+    };
         
     //Definicion de los get y set y metodos de instancia
     //Codigo
@@ -63,7 +83,7 @@ public final class Flight{//Ya no hay herencia
         return this.code;
     }
     //Precio
-    public void setPrice(int precio){
+    public void setPrice(double precio){
         this.price = precio;
     }
     public double getPrice(){
@@ -140,10 +160,10 @@ public final class Flight{//Ya no hay herencia
         return this.boardingDoor;
     }
     //Asientos falta verificar tipo de datos
-    public void setSeats(String asiento){
+    public void setSeats(List<String> asiento){
         this.seats = asiento;
     }
-    public String getSeats(){
+    public List<String> getSeats(){
         return this.seats;
     }
     //Avion
@@ -171,5 +191,5 @@ public final class Flight{//Ya no hay herencia
  	public static Flight search(String atributte, String codigo){
              
  	};
-        
+    
 }
