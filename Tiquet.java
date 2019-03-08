@@ -62,9 +62,16 @@ public class Tiquet{
 	public String getFacture(){
 		return this.facture;
 	}
-
+	//Metodo guardar, creara un pdf con el tiquete
+	public void savePdf(){
+		
+	}
+	//Metodo imprimir, tomara el pdf creado y lo imprimira
+	public void printTiquet(){
+		
+	}
 	//Metodos de clase
-	//Define serial para cada tiquete generado
+	//Define serial para cada tiquete generado, es un metodo auxiliar
 	private static void more(){
 		Tiquet.serial++;
 		if(Tiquet.tiquets.containsKey(Tiquet.serial)){
@@ -88,6 +95,7 @@ public class Tiquet{
 			return false;
 		}
 	}
+	
 
 
 }
