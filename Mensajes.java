@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package travelworld;
+package POO_JAVA;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Mensajes {
 
-    public void Mensajes() {
-        Map MensajesEsp = new HashMap();
+    public static Map MensajesEsp = new HashMap();
+    public static Map MensajesEng = new HashMap();
+
+    public static void Mensajes() {
+
         MensajesEsp.put("SeleccionIdioma", "=================================\n=== Bienvenido a Travel World ===\n=================================\n1. Español\n2. Ingles\nSeleccione un idioma:");
         MensajesEsp.put("Principal", "\n1. Iniciar Sesión.\n2. Registrarse.\n3. Buscar productos.\n4. Salir.\nOpción:");
         MensajesEsp.put("Principal2", "\n1. Buscar Productos.\n2. Cerrar Sesion.\n3. Modificar Datos.\n");
@@ -66,8 +69,7 @@ public class Mensajes {
         MensajesEsp.put("NumeroFactura", "Numero de factura ");
         MensajesEsp.put("Cliente", "Cliente");
         MensajesEsp.put("Codigo/Valor", "Codigo producto  |   Valor");
-        
-        Map MensajesEng = new HashMap();
+
         MensajesEng.put("Principal", "\n1. Log In.\n2. Sign Up.\n3. Search products.\n4. Go Out.\nOption:");
         MensajesEng.put("Principal2", "\n1. Search Products.\n2. Close Session.\n3.Modify Data.");
         MensajesEng.put("Principal3", "\nSelect what you want to change:\n1. Name.\n2. Country.\n3. Phone number.\n4 Date of birth.\n5. E-mail.\n6 .Credit card.\n7 Address.\n8. Password.");
@@ -121,7 +123,14 @@ public class Mensajes {
         MensajesEng.put("NumeroFactura", "Receipt no. ");
         MensajesEng.put("Cliente", "Customer");
         MensajesEng.put("Codigo/Valor", "Product id  |   Amount Paid");
+    }
 
+    public static void getmensajesesp(String key) {
+        System.out.println(MensajesEsp.get(key));
+    }
+
+    public static void getmensajeseng(String key) {
+        System.out.println(MensajesEng.get(key));
     }
 
 }
