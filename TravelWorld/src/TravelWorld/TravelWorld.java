@@ -7,12 +7,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+//Importando las clases
+import TravelWorld.Tiquet.*;
+import TravelWorld.Flight.*;
+
+
+
 public class TravelWorld {
 
     /**
      */
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        /*
         Mensajes.Mensajes();
         Mensajes.getmensajesesp("SeleccionIdioma");
         String opcion = scan.next();
@@ -64,6 +71,7 @@ public class TravelWorld {
             } else if (opcion2.equals("4")) {
             }
         }
+        */
     }
 
 }
