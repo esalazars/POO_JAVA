@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package POO_JAVA;
+package TravelWorld;
 
 /**
  *
@@ -188,8 +188,8 @@ public final class Flight{//Ya no hay herencia
     // fecha de salida, precios.
     //Metodo busqueda por:
     //1.Codigo
- 	public static Flight search(String atributte, String codigo){
+//    public static Flight search(String atributte, String codigo){
              
- 	};
+//    };
     
 }

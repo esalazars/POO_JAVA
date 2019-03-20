@@ -1,10 +1,7 @@
 // Empece con la clase principal antes de que nos coja la tarde. Sin interfaz grafica por ahora
 
 
-
-
-
-package POO_JAVA;
+package TravelWorld;
 
 import java.util.HashMap;
 import java.util.Map;
