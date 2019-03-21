@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class TravelWorld {
 
     public static Airline Avianca = new Airline("Avianca");
-    public static Airline JetBlue = new Airline("SpiritAirlines");
+    public static Airline JetBlue = new Airline("JetBlue");
     public static Airline American = new Airline("AmericanAirlines");
     public static ArrayList<Customer> customers = new ArrayList<Customer>();
 
