@@ -107,7 +107,7 @@ public class TravelWorld {
         BufferedReader in;
 
         try {
-            in = new BufferedReader(new FileReader("C:\\Users\\Finrod\\Desktop\\Vuelos.txt"));
+            in = new BufferedReader(new FileReader("Vuelos.txt"));
 
             for (int i = 0; i < 10; i++) {
                 String Code = in.readLine();
