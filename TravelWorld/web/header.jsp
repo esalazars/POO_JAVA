@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
   <head>
-    <title>PlantillaBasica</title>
+    <title>Travel World</title>
     <link rel="stylesheet" type="text/css" href="<c:url value = "/css/bootstrap.min.css"/>" />
     <link rel="stylesheet" type="text/css" href="<c:url value = "/css/style.css"/>" />
   </head>
