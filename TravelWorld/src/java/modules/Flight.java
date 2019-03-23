@@ -12,6 +12,7 @@ package modules;
 
 import java.util.*;
 import java.util.Calendar;
+import modules.Tiquet;
 
 public final class Flight{//Ya no hay herencia
     private String code;
@@ -26,9 +27,9 @@ public final class Flight{//Ya no hay herencia
     private Calendar boardingTime;
     private String airline;
     private String boardingDoor;
-    private List<String> seats;
+    private HashMap<String,Boolean> seats;
     private String airplane;
-    private String tiquet;
+    private List<Tiquet> tiquet;
     //Lista de vuelos creados
     public static HashMap<String, Flight> flights = new HashMap<String, Flight>();
     
@@ -45,18 +46,23 @@ public final class Flight{//Ya no hay herencia
         this.setBoardingTime(Calendar.getInstance());
         this.setAirline("Sin implementar");
         this.setBoardingDoor("A1");
-        List<String> lista = new ArrayList<>(Arrays.asList("A1","A2","A3"));
+        HashMap<String,Boolean> lista = new HashMap<String,Boolean>();
+        lista.put("A0",true);
+        lista.put("A1",true);
+        lista.put("A2",true);
+        lista.put("A3",true);
+        lista.put("A4",true);
+        lista.put("A5",true);        
         this.setSeats(lista);
         this.setAirplane("Airbus 270");
-        this.setTiquets("Sin implementar");
         flights.put("0000", this);
     };
 
     public Flight(String code, double price, int maxPassengers, String departureCity,
                     String arrivalCity, String departureAirport, String arrivalAirport,
                     Calendar departureDate, Calendar arrivalDate, Calendar boardingTime, 
-                    String airline, String boardingDoor, List<String> seats, 
-                    String airplane, String tiquet){//Constructor preferido
+                    String airline, String boardingDoor, HashMap<String,Boolean> seats, 
+                    String airplane){//Constructor preferido
         this.setCode(code);
         this.setPrice(price);
         this.setMaxPassengers(maxPassengers);
@@ -71,7 +77,6 @@ public final class Flight{//Ya no hay herencia
         this.setBoardingDoor(boardingDoor);
         this.setSeats(seats);
         this.setAirplane(airplane);
-        this.setTiquets(tiquet);
     };
         
     //Definicion de los get y set y metodos de instancia
@@ -160,10 +165,10 @@ public final class Flight{//Ya no hay herencia
         return this.boardingDoor;
     }
     //Asientos falta verificar tipo de datos
-    public void setSeats(List<String> asiento){
+    public void setSeats(HashMap<String,Boolean> asiento){
         this.seats = asiento;
     }
-    public List<String> getSeats(){
+    public HashMap<String,Boolean> getSeats(){
         return this.seats;
     }
     //Avion
@@ -174,12 +179,13 @@ public final class Flight{//Ya no hay herencia
         return this.airplane;
     }
     //Tiquete falta clase tiquete
-    public void setTiquets(String /*Tiquet*/ tiquete){
-        this.tiquet = tiquete;
+    public void addTiquet(Tiquet tiquete){
+        this.tiquet.add(tiquete);
     }
-    public String /*Tiquet */ getTiquets(){
+    public List<Tiquet> getTiquets(){
         return this.tiquet;
     }
+    
     /*Faltantes por definir
     Cancelar()
     Comprar()

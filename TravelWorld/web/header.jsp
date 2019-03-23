@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
-        <link rel="icon" href="C:\Users\user\OneDrive\Documentos\GitHub\POO_JAVA\TravelWorld\src\logo.ico"/>
         <title >Travel World</title>
         <link rel="stylesheet" type="text/css" href="<c:url value = "/css/bootstrap.min.css"/>" />
         <link rel="stylesheet" type="text/css" href="<c:url value = "/css/style.css"/>" />

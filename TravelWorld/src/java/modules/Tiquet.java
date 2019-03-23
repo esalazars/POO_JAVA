@@ -13,31 +13,31 @@ package modules;
 import java.util.*;
 
 public class Tiquet{
-    private double code;
+    private int code;
     private String /* Facture*/ facture; //Atributos de relacion
-    private String /* Flight*/ flight;//Atributos de relacion
-    private static double serial = 0;
-    public static HashMap<Double,Tiquet> tiquets = new HashMap<Double,Tiquet>(); // Lista de tiquets creados
+    private Flight flight;//Atributos de relacion
+    private static int serial = 0;
+    public static HashMap<Integer,Tiquet> tiquets = new HashMap<Integer,Tiquet>(); // Lista de tiquets creados
+//    public static final DEST = ;
+    
     
     public Tiquet(){//Constructor por defecto
         Tiquet.more();
         this.setCode(Tiquet.serial);
-        this.setFacture("Sin definir clase");
-        this.setFlight("Sin definir clase");
+        this.setFlight(new Flight());
         tiquets.put(this.getCode(), this);
     }
     
-    public Tiquet(String /* Flight*/ flight){
+    public Tiquet(Flight flight){
         Tiquet.more();
         this.setCode(Tiquet.serial);
-        this.setFacture("Sin asignar");
         this.setFlight(flight);
         tiquets.put(this.getCode(), this);
     }
     
     //Definicion de set y get
     //Codigo
-    public void setCode(double codigo){
+    public void setCode(int codigo){
         if(Tiquet.tiquets.containsKey(codigo)){
             Tiquet.more();
             this.setCode(Tiquet.serial);
@@ -45,32 +45,32 @@ public class Tiquet{
             this.code = codigo;
         }
     }
-    public double getCode(){
-		return this.code;
-	}
+    public int getCode(){
+	return this.code;
+    }
     //Vuelo
-    public void setFlight(String vuelo){
-		this.flight = vuelo;
-	}
-    public String getFlight(){
-		return this.flight;
-	}
+    public void setFlight(Flight vuelo){
+	this.flight = vuelo;
+    }
+    public Flight getFlight(){
+	return this.flight;
+    }
     //Factura en la cual fue pagada
     public void setFacture(String factura){
-		this.facture = factura;
-	}
+	this.facture = factura;
+    }
     public String getFacture(){
-		return this.facture;
-	}
+	return this.facture;
+    }
     
     //Metodo guardar, creara un pdf con el tiquete
-    public void savePdf(){
+    public void saveTiquet(){
         
     }
     //Metodo imprimir, tomara el pdf creado y lo imprimira
     public void printTiquet(){
 		
-	}	//Metodos de clase
+    }	//Metodos de clase
     //Define serial para cada tiquete generado, es un metodo auxiliar
     private static void more(){
         Tiquet.serial++;
@@ -79,7 +79,7 @@ public class Tiquet{
         }
     }
     //Borrar tiquete
-    public static Boolean delete(double codigo){
+    public static Boolean delete(int codigo){
         if(Tiquet.tiquets.containsKey(codigo)){
             try{
                 if(Tiquet.tiquets.remove(codigo) != null){
@@ -96,7 +96,6 @@ public class Tiquet{
     }
     /*Metodos por definir
     Guardar()
-    Borrar()
     Imprimir()
     */
     
