@@ -14,64 +14,64 @@ import java.util.*;
 import java.util.Calendar;
 
 public final class Flight{//Ya no hay herencia
-	private String code;
-	private double price;
- 	private int maxPassengers;
- 	private String departureCity;
- 	private String arrivalCity;
- 	private String departureAirport;
- 	private String arrivalAirport;
- 	private Calendar departureDate;
- 	private Calendar arrivalDate;
- 	private Calendar boardingTime;
- 	private String airline;
- 	private String boardingDoor;
- 	private List<String> seats;
- 	private String airplane;
- 	private String tiquet;
+    private String code;
+    private double price;
+    private int maxPassengers;
+    private String departureCity;
+    private String arrivalCity;
+    private String departureAirport;
+    private String arrivalAirport;
+    private Calendar departureDate;
+    private Calendar arrivalDate;
+    private Calendar boardingTime;
+    private String airline;
+    private String boardingDoor;
+    private List<String> seats;
+    private String airplane;
+    private String tiquet;
     //Lista de vuelos creados
     public static HashMap<String, Flight> flights = new HashMap<String, Flight>();
-
- 	public Flight(){//Constructor por defecto
-            this.setCode("0000");
-            this.setPrice(100000);
-            this.setMaxPassengers(3);
-            this.setDepartureCity("Medellin");
-            this.setArrivalCity("Bogota");
-            this.setDepartureAirport("Juan Pablo Segundo");
-            this.setArrivalAirport("El Dorado");
-            this.setDepartureDate(Calendar.getInstance());
-            this.setArrivalDate(Calendar.getInstance());
-            this.setBoardingTime(Calendar.getInstance());
-            this.setAirline("Sin implementar");
-            this.setBoardingDoor("A1");
-            List<String> lista = new ArrayList<>(Arrays.asList("A1","A2","A3"));
-            this.setSeats(lista);
-            this.setAirplane("Airbus 270");
-            this.setTiquets("Sin implementar");
-            flights.put("0000", this);
- 	};
+    
+    public Flight(){//Constructor por defecto
+        this.setCode("0000");
+        this.setPrice(100000);
+        this.setMaxPassengers(3);
+        this.setDepartureCity("Medellin");
+        this.setArrivalCity("Bogota");
+        this.setDepartureAirport("Juan Pablo Segundo");
+        this.setArrivalAirport("El Dorado");
+        this.setDepartureDate(Calendar.getInstance());
+        this.setArrivalDate(Calendar.getInstance());
+        this.setBoardingTime(Calendar.getInstance());
+        this.setAirline("Sin implementar");
+        this.setBoardingDoor("A1");
+        List<String> lista = new ArrayList<>(Arrays.asList("A1","A2","A3"));
+        this.setSeats(lista);
+        this.setAirplane("Airbus 270");
+        this.setTiquets("Sin implementar");
+        flights.put("0000", this);
+    };
 
     public Flight(String code, double price, int maxPassengers, String departureCity,
                     String arrivalCity, String departureAirport, String arrivalAirport,
                     Calendar departureDate, Calendar arrivalDate, Calendar boardingTime, 
                     String airline, String boardingDoor, List<String> seats, 
                     String airplane, String tiquet){//Constructor preferido
-            this.setCode(code);
-            this.setPrice(price);
-            this.setMaxPassengers(maxPassengers);
-            this.setDepartureCity(departureCity);
-            this.setArrivalCity(arrivalCity);
-            this.setDepartureAirport(departureAirport);
-            this.setArrivalAirport(arrivalAirport);
-            this.setDepartureDate(departureDate);
-            this.setArrivalDate(arrivalDate);
-            this.setBoardingTime(boardingTime);
-            this.setAirline(airline);
-            this.setBoardingDoor(boardingDoor);
-            this.setSeats(seats);
-            this.setAirplane(airplane);
-            this.setTiquets(tiquet);
+        this.setCode(code);
+        this.setPrice(price);
+        this.setMaxPassengers(maxPassengers);
+        this.setDepartureCity(departureCity);
+        this.setArrivalCity(arrivalCity);
+        this.setDepartureAirport(departureAirport);
+        this.setArrivalAirport(arrivalAirport);
+        this.setDepartureDate(departureDate);
+        this.setArrivalDate(arrivalDate);
+        this.setBoardingTime(boardingTime);
+        this.setAirline(airline);
+        this.setBoardingDoor(boardingDoor);
+        this.setSeats(seats);
+        this.setAirplane(airplane);
+        this.setTiquets(tiquet);
     };
         
     //Definicion de los get y set y metodos de instancia
@@ -180,7 +180,17 @@ public final class Flight{//Ya no hay herencia
     public String /*Tiquet */ getTiquets(){
         return this.tiquet;
     }
+    /*Faltantes por definir
+    Cancelar()
+    Comprar()
+    Buscar()
+    Editar()
+    Eliminar()
+    notificar();
     
+    
+    
+    */
     //Metodos Estaticos
     
     //Buscar por codigo, asientos disponibles, aerolinea, ciudad de partida,
