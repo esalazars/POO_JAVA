@@ -1,6 +1,7 @@
-
+import java.util.*;
 public class Client{
     
+    public static HashMap <Integer,Client> clients = new HashMap <Integer,Client> ();
     private String name;
     private int id;
     private String country;
@@ -11,10 +12,24 @@ public class Client{
     private String document_type;
     private String sex;
     private int points;
+    
+    public Client(){
+        new Client("",0,"",0,"","","","",0);
+    }
 
     public Client (String name, int id, String country, int phone, 
             String direction, String password, String document_type, String sex,
             int points){
+        this.setName(name);
+        this.setId(id);
+        this.setCountry(country);
+        this.setPhone(phone);
+        this.setDirection(direction);
+        this.setPassword(password);
+        this.setDocument_type(document_type);
+        this.setSex(sex);
+        this.setPoints(points);
+                
     }
 
     public void setName(String name) {
@@ -58,42 +73,70 @@ public class Client{
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getCountry() {
-        return country;
+        return this.country;
     }
 
     public int getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public String getDirection() {
-        return direction;
+        return this.direction;
     }
 
     public String getBirthdate() {
-        return birthdate;
+        return this.birthdate;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public String getDocument_type() {
-        return document_type;
+        return this.document_type;
     }
 
     public String getSex() {
-        return sex;
+        return this.sex;
     }
 
     public int getPoints() {
-        return points;
+        return this.points;
+    }
+    
+    public static String register (String name, int id, String country, int phone, 
+            String direction, String password, String document_type, String sex,
+            int points){
+        
+        String date = "";
+        if (Client.clients.containsKey(id)){
+            retorne mensaje que diga usuario existente
+        }else{
+            Client var = new Client(name,id,country,phone,direction,password,
+                    document_type,sex,points);
+            Client.clients.put(id,var);
+            registro con exito
+        }
+    }
+    
+    public static String login (int id, String password){
+        if (!Client.clients.containsKey(id)){
+            retorna este usuario no esta registrado
+        }else{
+            if (Client.clients.get(id).equals(password)){
+                
+                return Client.clients.get(id);
+            }else{
+                contraseña erronea
+            }
+        }
     }
 }
