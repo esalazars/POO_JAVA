@@ -1,5 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package modules;
 import java.util.*;
-public class Client{
+
+/**
+ *
+ * @author UNAL
+ */
+public class Client {
     
     public static HashMap <Integer,Client> clients = new HashMap <Integer,Client> ();
     private String name;
@@ -17,7 +28,7 @@ public class Client{
         new Client("",0,"",0,"","","","",0);
     }
 
-    public Client (String name, int id, String country, int phone, 
+    public Client(String name, int id, String country, int phone, 
             String direction, String password, String document_type, String sex,
             int points){
         this.setName(name);
@@ -29,7 +40,6 @@ public class Client{
         this.setDocument_type(document_type);
         this.setSex(sex);
         this.setPoints(points);
-                
     }
 
     public void setName(String name) {
@@ -118,25 +128,26 @@ public class Client{
         
         String date = "";
         if (Client.clients.containsKey(id)){
-            retorne mensaje que diga usuario existente
+            
         }else{
             Client var = new Client(name,id,country,phone,direction,password,
                     document_type,sex,points);
             Client.clients.put(id,var);
-            registro con exito
         }
+        return "";
     }
     
     public static String login (int id, String password){
         if (!Client.clients.containsKey(id)){
-            retorna este usuario no esta registrado
+
         }else{
             if (Client.clients.get(id).equals(password)){
                 
-                return Client.clients.get(id);
+                //return Client.clients.get(id);
             }else{
-                contraseña erronea
+
             }
         }
+        return "";
     }
 }
