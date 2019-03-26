@@ -1,7 +1,9 @@
+
 import java.util.*;
-public class Client{
-    
-    public static HashMap <Integer,Client> clients = new HashMap <Integer,Client> ();
+
+public class Client {
+
+    public static HashMap<Integer, Client> clients = new HashMap<Integer, Client>();
     private String name;
     private int id;
     private String country;
@@ -12,14 +14,14 @@ public class Client{
     private String document_type;
     private String sex;
     private int points;
-    
-    public Client(){
-        new Client("",0,"",0,"","","","",0);
+    private boolean state_login;
+
+    public Client() {
+        new Client("", 0, "", 0, "", "", "", "");
     }
 
-    public Client (String name, int id, String country, int phone, 
-            String direction, String password, String document_type, String sex,
-            int points){
+    public Client(String name, int id, String country, int phone,
+            String direction, String password, String document_type, String sex) {
         this.setName(name);
         this.setId(id);
         this.setCountry(country);
@@ -28,8 +30,7 @@ public class Client{
         this.setPassword(password);
         this.setDocument_type(document_type);
         this.setSex(sex);
-        this.setPoints(points);
-                
+        this.setPoints(0);
     }
 
     public void setName(String name) {
@@ -72,6 +73,10 @@ public class Client{
         this.points = points;
     }
 
+    public void setState_login(boolean state_login) {
+        this.state_login = state_login;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -111,32 +116,50 @@ public class Client{
     public int getPoints() {
         return this.points;
     }
-    
-    public static String register (String name, int id, String country, int phone, 
-            String direction, String password, String document_type, String sex,
-            int points){
-        
+
+    public boolean getState_login() {
+        return state_login;
+    }
+
+    public static String register(String name, int id, String country, int phone,
+            String direction, String password, String document_type, String sex) {
+
         String date = "";
-        if (Client.clients.containsKey(id)){
+        if (Client.clients.containsKey(id)) {
             retorne mensaje que diga usuario existente
-        }else{
-            Client var = new Client(name,id,country,phone,direction,password,
-                    document_type,sex,points);
-            Client.clients.put(id,var);
+        } else {
+            Client var = new Client(name, id, country, phone, direction, password,
+                    document_type, sex);
+            Client.clients.put(id, var);
+            var.setState_login(true);
             registro con exito
         }
     }
-    
-    public static String login (int id, String password){
-        if (!Client.clients.containsKey(id)){
+
+    public static String login(int id, String password) {
+        if (!Client.clients.containsKey(id)) {
             retorna este usuario no esta registrado
-        }else{
-            if (Client.clients.get(id).equals(password)){
-                
+        } else {
+            if (Client.clients.get(id).equals(password)) {
+
                 return Client.clients.get(id);
-            }else{
+            } else {
                 contraseña erronea
             }
+        }
+    }
+
+    public Boolean modify_data(String name, String country, int phone,
+            String direction, String sex) {
+        try {
+            this.setName(name);
+            this.setCountry(country);
+            this.setPhone(phone);
+            this.setDirection(direction);
+            this.setSex(sex);
+            return true;
+        } catch (Exception var1) {
+            return false;
         }
     }
 }
