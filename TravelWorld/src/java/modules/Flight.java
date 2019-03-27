@@ -12,7 +12,6 @@ package modules;
 
 import java.util.*;
 import java.util.Calendar;
-import modules.Tiquet;
 
 public final class Flight{//Ya no hay herencia
     private String code;

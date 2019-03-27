@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package modules;
-import java.util.*;
+
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author UNAL
@@ -13,9 +16,18 @@ import java.util.*;
 public class Calification {
 
     private float score;
+    private Airline airline;
+    //Atributo estatico de clase
+    public static List<Calification> calificaciones = new LinkedList<Calification>();
     
-    public Calification(float score){
+    public Calification(Calification calif){
+        new Calification(calif.getScore(),calif.getAirline());
+    }
+    
+    public Calification(float score,Airline aerolinea){
         this.setScore(score);
+        this.setAirline(aerolinea);
+        calificaciones.add(this);        
     }
     
     public float getScore() {
@@ -24,5 +36,13 @@ public class Calification {
 
     public void setScore(float score) {
         this.score = score;
+    }
+    
+    public Airline getAirline(){
+        return this.airline;
+    }
+    
+    public void setAirline(Airline aerolinea){
+        this.airline = new Airline(aerolinea);
     }
 }

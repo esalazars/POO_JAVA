@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,14 +13,6 @@ import java.util.*;
 public class Client {
     
     public static HashMap <Integer,Client> clients = new HashMap <Integer,Client> ();
-=======
-
-import java.util.*;
-
-public class Client {
-
-    public static HashMap<Integer, Client> clients = new HashMap<Integer, Client>();
->>>>>>> e3f949878695344b46c38ada6f5d1384791f12c7
     private String name;
     private int id;
     private String country;
@@ -38,14 +29,9 @@ public class Client {
         new Client("", 0, "", 0, "", "", "", "");
     }
 
-<<<<<<< HEAD
-    public Client(String name, int id, String country, int phone, 
-            String direction, String password, String document_type, String sex,
-            int points){
-=======
+
     public Client(String name, int id, String country, int phone,
             String direction, String password, String document_type, String sex) {
->>>>>>> e3f949878695344b46c38ada6f5d1384791f12c7
         this.setName(name);
         this.setId(id);
         this.setCountry(country);
@@ -54,11 +40,7 @@ public class Client {
         this.setPassword(password);
         this.setDocument_type(document_type);
         this.setSex(sex);
-<<<<<<< HEAD
-        this.setPoints(points);
-=======
         this.setPoints(0);
->>>>>>> e3f949878695344b46c38ada6f5d1384791f12c7
     }
 
     public void setName(String name) {
@@ -153,56 +135,32 @@ public class Client {
             String direction, String password, String document_type, String sex) {
 
         String date = "";
-<<<<<<< HEAD
-        if (Client.clients.containsKey(id)){
-            
-        }else{
-            Client var = new Client(name,id,country,phone,direction,password,
-                    document_type,sex,points);
-            Client.clients.put(id,var);
-=======
         if (Client.clients.containsKey(id)) {
-            retorne mensaje que diga usuario existente
+            //retorne mensaje que diga usuario existente
         } else {
             Client var = new Client(name, id, country, phone, direction, password,
                     document_type, sex);
             Client.clients.put(id, var);
             var.setState_login(true);
-            registro con exito
->>>>>>> e3f949878695344b46c38ada6f5d1384791f12c7
+            //registro con exito
         }
         return "";
     }
-<<<<<<< HEAD
-    
-    public static String login (int id, String password){
-        if (!Client.clients.containsKey(id)){
-
-        }else{
-            if (Client.clients.get(id).equals(password)){
-                
-                //return Client.clients.get(id);
-            }else{
-
-=======
-
+ 
     public static String login(int id, String password) {
         if (!Client.clients.containsKey(id)) {
-            retorna este usuario no esta registrado
+            //retorna este usuario no esta registrado
         } else {
             if (Client.clients.get(id).equals(password)) {
 
-                return Client.clients.get(id);
+               // return Client.clients.get(id);
             } else {
-                contraseña erronea
->>>>>>> e3f949878695344b46c38ada6f5d1384791f12c7
+                //contraseña erronea
+
             }
         }
         return "";
     }
-<<<<<<< HEAD
-}
-=======
 
     public Boolean modify_data(String name, String country, int phone,
             String direction, String sex) {
@@ -218,4 +176,4 @@ public class Client {
         }
     }
 }
->>>>>>> e3f949878695344b46c38ada6f5d1384791f12c7
+
