@@ -13,7 +13,6 @@ public class Airline {
     //Atributos de relaciones
     private List<Calification> calificaciones = new LinkedList<Calification>();
     private HashMap<String,Flight> vuelos = new HashMap<String,Flight>();
-
     //Atributo de la clase
     public static HashMap<String,Airline> aerolineas = new HashMap<String,Airline>();
     
@@ -57,6 +56,8 @@ public class Airline {
     }
 
     public void setCalificaciones(Calification calificaciones) {
+        this.calificaciones.clear();
+        this.calificaciones = new LinkedList<Calification>();
         this.calificaciones.add(calificaciones) ;
     }
     
