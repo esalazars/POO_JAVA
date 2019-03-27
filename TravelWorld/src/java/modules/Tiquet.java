@@ -34,15 +34,7 @@ public class Tiquet{
     private static int serial = 0;
     public static HashMap<Integer,Tiquet> tiquets = new HashMap<Integer,Tiquet>(); // Lista de tiquets creados
     public static final String DEST = "C:\\Users\\UNAL\\Documents\\GitHub\\POO_JAVA\\TravelWorld\\src\\java\\files";
-    
-    public Tiquet() throws IOException{//Constructor por defecto
-        Tiquet.more();
-        this.setCode(Tiquet.serial);
-        this.setFlight(new Flight());
-        this.saveTiquet(Tiquet.DEST+"\\"+this.getCode()+".pdf");
-        tiquets.put(this.getCode(), this);
-    }
-    
+     
     public Tiquet(Flight flight) throws IOException{
         Tiquet.more();
         this.setCode(Tiquet.serial);

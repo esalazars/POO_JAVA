@@ -244,14 +244,33 @@ public final class Flight {//Ya no hay herencia
     Comprar()
     Buscar()
     Editar()
-    Eliminar()
     notificar();
     */
-    
+    public boolean editFlight(Flight flight){
+        
+        return false;
+    }
     //Metodos Estaticos
-    //Metodo para eliminar un tiquete
+    //Metodo para Editar un vuelo ya creado
     
-//Buscar por codigo, asientos disponibles, aerolinea, ciudad de partida,
+    //Metodo para eliminar un tiquete
+    public static boolean delete(String code){
+        if(Flight.flights.containsKey(code)){
+            try{
+                //Borra objeto y clave
+                Flight.flights.put(code,null);
+                Flight.flights.remove(code);
+            }
+            catch(Exception e){
+                //Si no se pudo borrar
+                return false;
+            }
+        }
+        //Si el vuelo no existe
+        return false;
+    }
+    
+    //Buscar por codigo, asientos disponibles, aerolinea, ciudad de partida,
     // ciudad de llegada, aeropuerto de salida, aeropuerto de llegada,
     // fecha de salida, precios.
     //Metodo busqueda por:
