@@ -135,7 +135,7 @@ public class Client extends Person {
         if (Client.clients.containsKey(id)) {
             //retorne mensaje que diga usuario existente
         } else {
-            Client var = new Client(name, id, country, phone, direction, password,
+            Client var = new Client(name, id, email,country, phone, direction, password,
                     document_type, sex);
             Client.clients.put(id, var);
             var.setState_login(true);

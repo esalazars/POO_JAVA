@@ -5,10 +5,6 @@
  */
 package controllers;
 
-/**
- *
- * @author UNAL
- */
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,18 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modules.*;
 
-@WebServlet(urlPatterns = {"/Home"})
-
-public class Init extends HttpServlet {
+@WebServlet(urlPatterns = {"/Index/Profile/Modify"})
+public class ModifyProfile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Tiquet t1 = new Tiquet(new Flight());
-        System.out.println("Instancia Tiquet t1 creada, y el pdf?");
-        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("Exito.jsp");
         view.forward(request, response);  
     }
 }
