@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 package modules;
+
 import java.util.*;
 
 /**
  *
  * @author UNAL
  */
-public class Client {
-    
-    public static HashMap <Integer,Client> clients = new HashMap <Integer,Client> ();
+public class Client extends Person {
+
+    public static HashMap<Integer, Client> clients = new HashMap<Integer, Client>();
     private String name;
     private int id;
     private String country;
@@ -25,13 +26,9 @@ public class Client {
     private int points;
     private boolean state_login;
 
-    public Client() {
-        new Client("", 0, "", 0, "", "", "", "");
-    }
-
-
-    public Client(String name, int id, String country, int phone,
+    public Client(String name, int id, String email, String country, int phone,
             String direction, String password, String document_type, String sex) {
+        super(email);
         this.setName(name);
         this.setId(id);
         this.setCountry(country);
@@ -131,7 +128,7 @@ public class Client {
         return state_login;
     }
 
-    public static String register(String name, int id, String country, int phone,
+    public static String register(String name, int id, String email, String country, int phone,
             String direction, String password, String document_type, String sex) {
 
         String date = "";
@@ -146,14 +143,14 @@ public class Client {
         }
         return "";
     }
- 
+
     public static String login(int id, String password) {
         if (!Client.clients.containsKey(id)) {
             //retorna este usuario no esta registrado
         } else {
             if (Client.clients.get(id).equals(password)) {
 
-               // return Client.clients.get(id);
+                // return Client.clients.get(id);
             } else {
                 //contraseña erronea
 
@@ -176,4 +173,3 @@ public class Client {
         }
     }
 }
-
