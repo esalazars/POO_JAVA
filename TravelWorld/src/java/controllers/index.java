@@ -12,27 +12,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import util.Message;
 
 
 @WebServlet(urlPatterns = {"/"})
-public class index extends MainServlet{
+public class index extends LenguageServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Intentando configurar mensajes
-        setMessages(request);
-        String opcion = request.getParameter("option");
+        //Configuranfo mensaes segun idioma
+        setMessages(request);        
+        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         
-        if(opcion == null){opcion = "";}
-        
-        RequestDispatcher view = request.getRequestDispatcher("index.jsp");/*
-        if(!Message.Leng.isEmpty()){
-            view = request.getRequestDispatcher("Exito.jsp");
-        }else{
-            request.setAttribute("Lenguage",Message.Leng);
-            view = request.getRequestDispatcher("index.jsp");
-        }*/        
         view.forward(request, response);  
     }
 }
