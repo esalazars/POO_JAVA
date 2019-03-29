@@ -2,12 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
-    <head>        
+    <head>
+        <meta charset="utf-8">        
+        <title>Travel World</title>
         <link rel="shortcut icon" href="/flavicon.png" type="image/x-icon">        
         <link rel="stylesheet" type="text/css" href="<c:url value = "/css/bootstrap.min.css"/>" />
-        <link rel="stylesheet" type="text/css" href="<c:url value = "/css/style.css"/>" />       
-        <title>Travel World</title>
+        <link rel="stylesheet" type="text/css" href="<c:url value = "/css/style.css"/>" />        
     </head>
+    
     <body>
         
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -18,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/Exito">${Lenguage["op1"]}</a>
+                        <a class="nav-link" href="#">${message["op1"]}</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link " href="#">Vuelos</a>
@@ -44,5 +46,5 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Buscar</button>
                 </form>
             </div>
-        </nav>    
+        </nav>
         
