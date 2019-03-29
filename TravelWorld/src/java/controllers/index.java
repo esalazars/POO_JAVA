@@ -12,14 +12,26 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import util.Message;
 
-@WebServlet(urlPatterns = {"/Home/Ficticional"})
-public class LoadFicticional extends HttpServlet {
+@WebServlet(urlPatterns = {"/index"})
+public class index extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+        String opcion = request.getParameter("option");
+        
+        if(opcion == null){
+            opcion = "";
+        }
+        RequestDispatcher view = request.getRequestDispatcher("index.jsp");;
+        if(!Message.Leng.isEmpty()){
+            view = request.getRequestDispatcher("Exito.jsp");
+        }else{
+            request.setAttribute("Lenguage",Message.Leng);
+            view = request.getRequestDispatcher("index.jsp");
+        }        
         view.forward(request, response);  
     }
 }

@@ -14,128 +14,282 @@ import java.util.Map;
 
 public class Message {
 
-    public static HashMap<String,String> Esp = new HashMap<String,String>();
-    public static HashMap<String,String> Eng = new HashMap<String,String>();
+    public static HashMap<String, String> Leng = new HashMap<String, String>();
+//    public static HashMap<String,String> Eng = new HashMap<String,String>();
 
-    public Message(){
+    public static void init_Lenguage(String leng) {
+        if (!Message.Leng.isEmpty()) {
+//            Message.Leng.clear();
+            if (leng.equals("esp")) {
+                Message.Leng.put("w1", "Bienvenido");
+                Message.Leng.put("w2", "Travel World es una empresa Web dedicada a la comercializacion de manera rapida y segura de tiquetes de vuelos nacionales e internacionales a modicos precios.");
 
-        Esp.put("SeleccionIdioma", "=================================\n=== Bienvenido a Travel World ===\n=================================\n1. Español\n2. Ingles\nSeleccione un idioma:");
-        Esp.put("Principal", "\n1. Iniciar Sesión.\n2. Registrarse.\n3. Buscar productos.\n4. Salir.\nOpción:");
-        Esp.put("Principal2", "\n1. Buscar Productos.\n2. Cerrar Sesion.\n3. Modificar Datos.\n");
-        Esp.put("Principal3", "\nSeleccione lo que desea modificar:\n1. Nombre.\n2. Pais.\n3. Numero telefono.\n4. Fecha de nacimiento.\n5. E-mail\n6. Targeta de credito.\n7. Direccion.\n8. Contraseña.");
-        Esp.put("Principal4", "\nPor favor escoje lo que deseas buscar:\n1. Vuelos.\n2. Habitaciones de hotel.\n3.Cancelar busqueda.");
-        Esp.put("CargandoDatos", "Cargando datos del sistema...");
-        Esp.put("DatosCargados", "Datos cargados exitosamente.");
-        Esp.put("GuardandoDatos", "Guardando datos...");
-        Esp.put("DatosGuardados", "Datos guardados exitosamente.");
-        Esp.put("ErrorCargando", "Error cargando datos del sistema.");
-        Esp.put("ErrorGuardando", "Error guardando datos del sistema.");
-        Esp.put("IntenteDeNuevo", "Intente de nuevo.");
-        Esp.put("Reiniciando", "Reiniciado...");
-        Esp.put("FinalizandoPrograma", "Finalizando programa...\nAdios.");
-        Esp.put("LeneInformacion", "Por favor llene la siguiente informacion:");
-        Esp.put("CuentaCreada", "Cuenta creada exitosamente");
-        Esp.put("IDExiste", "ID existente. Por favor intente otro.");
-        Esp.put("PedirID", "Ingrese ID de Usuario:");
-        Esp.put("PedirNombre", "Ingrese nombre de usuario:");
-        Esp.put("PedirPais", "Ingrese el Pais:");
-        Esp.put("PedirContraseña", "Ingrese contraseña:");
-        Esp.put("TipoDocumento", "Tipo de documento:");
-        Esp.put("PedirEmail", "Ingresa el E-mail:");
-        Esp.put("SeccionIniciada", "Sesión iniciada correctamente.\nBienvenido");
-        Esp.put("ErrorIniciando", "Error iniciando sesión. Por favor intente de nuevo.");
-        Esp.put("ContraseñaIncorrecta", "Contraseña incorrecta. Por favor intente de nuevo.");
-        Esp.put("IDNoExiste", "ID inexistente. Por favor intente de nuevo.");
-        Esp.put("PedirFechaNacimiento", "Ingrese fecha de nacimiento(aaaa/mm/dd):");
-        Esp.put("ErrorFecha", "Error ingresando fecha, intentelo de nuevo siguiente el formato(aaaa/mm/dd).");
-        Esp.put("PedirTelefono", "Ingrese numero telefonico:");
-        Esp.put("PedirDireccion", "Ingrese direccion:");
-        Esp.put("PedirTarjeta", "Ingrese numero tarjeta bancaria:");
-        Esp.put("RecuperarContraseña", "Selecciona 1 para recuperar contraseña");
-        Esp.put("OpcionInvalida", "Opcion invalida. Por favor intente de nuevo.");
-        Esp.put("PedirRangoPrecio", "Por favor seleccione el rango de precio");
-        Esp.put("Minimo", "Valor Minimo: ");
-        Esp.put("Maximo", "Valor maximo: ");
-        Esp.put("SeleccionarCompra", "Seleccione la id del producto que desea comprar");
-        Esp.put("ProductoComprado", "Producto comprado exitosamente");
-        Esp.put("InformacionModificada", "Informacion de la cuenta modificada exitosamente");
-        Esp.put("SesionCerrada", "Sesion cerrada");
-        Esp.put("SeleccionHistorial", "4. Mostrar historial de compras");
-        Esp.put("SeleccionCancelarCompra", "5. Cancelar compra");
-        Esp.put("ProductoParaCancelar", "Seleccione el producto que desee cancelar");
-        Esp.put("SeleccionCerrarPrograma", "5. Cerrar Programa");
-        Esp.put("Factura", "--------------------------");
-        Esp.put("Subtotal", "Subtotal:             ");
-        Esp.put("IVA", "IVA:                 ");
-        Esp.put("Total", "Total:             ");
-        Esp.put("Vacio", "");
-        Esp.put("Fecha", "Fecha: ");
-        Esp.put("NumeroFactura", "Numero de factura ");
-        Esp.put("Cliente", "Cliente");
-        Esp.put("Codigo/Valor", "Codigo producto  |   Valor");
+                Message.Leng.put("op1", "Iniciar Sesión");
+                Message.Leng.put("op2", "Vuelos");
+                Message.Leng.put("op3", "Registrarse");
+                Message.Leng.put("op4", "Cerrar Sesion");
+                Message.Leng.put("op5", "Modificar Datos");
+                Message.Leng.put("op6", "Datos Ficticios");
+                Message.Leng.put("op7", "Historial de compras");
 
-        Eng.put("Principal", "\n1. Log In.\n2. Sign Up.\n3. Search products.\n4. Go Out.\nOption:");
-        Eng.put("Principal2", "\n1. Search Products.\n2. Close Session.\n3.Modify Data.");
-        Eng.put("Principal3", "\nSelect what you want to change:\n1. Name.\n2. Country.\n3. Phone number.\n4 Date of birth.\n5. E-mail.\n6 .Credit card.\n7 Address.\n8. Password.");
-        Eng.put("Principal4", "\nPlease choose what you want to search for:\n1. Flights.\n2. Hotel rooms.\n3.Cancel search.");
-        Eng.put("CargandoDatos", "Loading system data ...");
-        Eng.put("DatosCargados", "Data loaded successfully.");
-        Eng.put("GuardandoDatos", "Saving data ...");
-        Eng.put("DatosGuardados", "Data saved successfully.");
-        Eng.put("ErrorCargando", "Error loading system data.");
-        Eng.put("ErrorGuardando", "Error loading system data.");
-        Eng.put("IntenteDeNuevo", "Try again.");
-        Eng.put("Reiniciando", "Reloading...");
-        Eng.put("FinalizandoPrograma", "Finishing program...\\nBye.");
-        Eng.put("LeneInformacion", "Please provide the following information:");
-        Eng.put("CuentaCreada", "Account created succesfully");
-        Eng.put("IDExiste", "ID already registered. Please try a different one");
-        Eng.put("PedirID", "Enter User ID:");
-        Eng.put("PedirNombre", "Enter username:");
-        Eng.put("PedirPais", "Enter country:");
-        Eng.put("PedirContraseña", "Ingrese contraseña:");
-        Eng.put("TipoDocumento", "Tipo de documento:");
-        Eng.put("PedirEmail", "Ingresa el E-mail:");
-        Eng.put("SeccionIniciada", "Sesión iniciada correctamente.\nBienvenido");
-        Eng.put("ErrorIniciando", "Error iniciando sesión. Por favor intente de nuevo.");
-        Eng.put("ContraseñaIncorrecta", "Contraseña incorrecta. Por favor intente de nuevo.");
-        Eng.put("IDNoExiste", "ID inexistente. Por favor intente de nuevo.");
-        Eng.put("PedirFechaNacimiento", "Enter birthdate(yyyy/mm/dd):");
-        Eng.put("ErrorFecha", "Error entering date, try again following the format yyyy/mm/dd.");
-        Eng.put("PedirTelefono", "Enter phone number:");
-        Eng.put("PedirDireccion", "Enter address:");
-        Eng.put("PedirTarjeta", "Enter bank card number:");
-        Eng.put("RecuperarContraseña", "Press 1 to recover your password");
-        Eng.put("OpcionInvalida", "Invalid input. Please try again.");
-        Eng.put("PedirRangoPrecio", "Please select price range");
-        Eng.put("Minimo", "Min price: ");
-        Eng.put("Maximo", "Max price: ");
-        Eng.put("SeleccionarCompra", "Select product id to purchase");
-        Eng.put("ProductoComprado", "Product purchased succesfully");
-        Eng.put("InformacionModificada", "Account information succesfully modified");
-        Eng.put("SesionCerrada", "Logged out succesfully");
-        Eng.put("SeleccionHistorial", "4. Show purchase history");
-        Eng.put("SeleccionCancelarCompra", "5. Cancel purchase");
-        Eng.put("ProductoParaCancelar", "Please select the purchase you would like to cancel");
-        Eng.put("SeleccionCerrarPrograma", "5. Close Program");
-        Eng.put("Factura", "--------------------------");
-        Eng.put("Subtotal", "Subtotal:             ");
-        Eng.put("IVA", "IVA:                 ");
-        Eng.put("Total", "Total:             ");
-        Eng.put("Vacio", "");
-        Eng.put("Fecha", "Date: ");
-        Eng.put("NumeroFactura", "Receipt no. ");
-        Eng.put("Cliente", "Customer");
-        Eng.put("Codigo/Valor", "Product id  |   Amount Paid");
+                Message.Leng.put("id", "Idioma");
+                Message.Leng.put("id1", "Español");
+                Message.Leng.put("id2", "Ingles");
+
+                Message.Leng.put("b", "Buscar");
+                Message.Leng.put("b1", "Buscar Vuelos");
+                Message.Leng.put("b2", "Buscar Tiquete");
+                Message.Leng.put("b3", "Buscar Factura");
+                Message.Leng.put("b4", "Rango de Precio");
+                Message.Leng.put("b5", "Valor Minimo");
+                Message.Leng.put("b6", "Valor maximo");
+
+                Message.Leng.put("prof", "Perfil");
+
+                Message.Leng.put("mod", "Modificar Datos");
+                Message.Leng.put("mod1", "Modificar Tiquete");
+                Message.Leng.put("mod2", "Modificar Perfil");
+                Message.Leng.put("mod3", "Perfil modificado exitosamente");
+
+                Message.Leng.put("data", "Informacion");
+                Message.Leng.put("data1", "Nombre");
+                Message.Leng.put("data2", "Pais");
+                Message.Leng.put("data3", "Numero telefonico");
+                Message.Leng.put("data4", "Fecha de nacimiento");
+                Message.Leng.put("data5", "E-mail");
+                Message.Leng.put("data6", "Direccion");
+                Message.Leng.put("data7", "Contraseña");
+                Message.Leng.put("data8", "Tipo Documento");
+                Message.Leng.put("data9", "Numero Documento");
+                Message.Leng.put("data10", "Fecha de Nacimiento");
+                Message.Leng.put("data11", "Codigo");
+                Message.Leng.put("data12", "Fecha");
+
+                Message.Leng.put("rec1", "Intente de nuevo");
+                Message.Leng.put("rec2", "Reiniciando...");
+
+                Message.Leng.put("sign", "Cuenta creada exitosamente");
+                Message.Leng.put("sign1", "ID existente. Por favor intente otro.");
+                Message.Leng.put("sign2", "ID inexistente. Por favor intente de nuevo.");
+                Message.Leng.put("sign3", "Contraseña incorrecta. Por favor intente de nuevo.");
+                Message.Leng.put("sign4", "Sesión iniciada correctamente");
+                Message.Leng.put("sign5", "Error iniciando sesión.");
+                Message.Leng.put("sign6", "Recuperar contraseña");
+                Message.Leng.put("sign7", "Sesion cerrada");
+                Message.Leng.put("buy", "Producto");
+                Message.Leng.put("buy0", "Productos");
+                Message.Leng.put("buy1", "Producto comprado exitosamente");
+                Message.Leng.put("buy2", "Cancelar compra");
+
+                Message.Leng.put("f", "Factura");
+                Message.Leng.put("f1", "Subtotal");
+                Message.Leng.put("f2", "IVA");
+                Message.Leng.put("f3", "Total");
+                Message.Leng.put("f4", "Numero de factura");
+
+            } else if (leng.equals("eng")) {
+                Message.Leng.put("w1", "Welcome");
+                Message.Leng.put("w2", "Travel World is a Web company dedicated to the fast and secure commercialization of national and international flights at modest prices.");
+
+                Message.Leng.put("op1", "Login");
+                Message.Leng.put("op2", "Flights");
+                Message.Leng.put("op3", "Register");
+                Message.Leng.put("op4", "Close Session");
+                Message.Leng.put("op5", "Modify Data");
+                Message.Leng.put("op6", "Fictitious Data");
+                Message.Leng.put("op7", "Purchase history");
+                
+                Message.Leng.put("id", "Language");
+                Message.Leng.put("id1", "Spanish");
+                Message.Leng.put("id2", "English");
+                
+                Message.Leng.put("b", "Search");
+                Message.Leng.put("b1", "Search Flights");
+                Message.Leng.put("b2", "Search Ticket");
+                Message.Leng.put("b3", "Find Invoice");
+                Message.Leng.put("b4", "Price Range");
+                Message.Leng.put("b5", "Minimum Value");
+                Message.Leng.put("b6", "Maximum value");
+                
+                Message.Leng.put("prof", "Profile");
+
+                Message.Leng.put("mod", "Modify Data");
+                Message.Leng.put("mod1", "Modify Ticket");
+                Message.Leng.put("mod2", "Modify Profile");
+                Message.Leng.put("mod3", "Successfully modified profile");
+                
+                Message.Leng.put("data", "Information");
+                Message.Leng.put("data1", "Name");
+                Message.Leng.put("data2", "Country");
+                Message.Leng.put("data3", "Phone number");
+                Message.Leng.put("data4", "Date of birth");
+                Message.Leng.put("data5", "E-mail");
+                Message.Leng.put("data6", "Address");
+                Message.Leng.put("data7", "Password");
+                Message.Leng.put("data8", "Document Type");
+                Message.Leng.put("data9", "Document Number");
+                Message.Leng.put("data10", "Date of Birth");
+                Message.Leng.put("data11", "Code");
+                Message.Leng.put("data12", "Date");
+                
+                Message.Leng.put("rec1", "Try again");
+                Message.Leng.put("rec2", "Restarting ...");
+                Message.Leng.put("sign", "Account successfully created");
+                Message.Leng.put("sign1", "Existing ID. Please try another.");
+                Message.Leng.put("sign2", "Non-existent ID. Please try again.");
+                Message.Leng.put("sign3", "Incorrect password, please try again.");
+                Message.Leng.put("sign4", "Session started successfully");
+                Message.Leng.put("sign5", "Error logging in.");
+                Message.Leng.put("sign6", "Recover password");
+                Message.Leng.put("sign7", "Session closed");
+                
+                Message.Leng.put("buy", "Product");
+                Message.Leng.put("buy0", "Products");
+                Message.Leng.put("buy1", "Product successfully purchased");
+                Message.Leng.put("buy2", "Cancel purchase");
+                
+                Message.Leng.put("f", "Invoice");
+                Message.Leng.put("f1", "Subtotal");
+                Message.Leng.put("f2", "IVA"); 
+                Message.Leng.put("f3", "Total");
+                Message.Leng.put("f4", "Invoice number");
+
+            }
+        } else {
+            if (leng.equals("esp")) {
+                Message.Leng.put("w1", "Bienvenido");
+                Message.Leng.put("w2", "Travel World es una empresa Web dedicada a la comercializacion de manera rapida y segura de tiquetes de vuelos nacionales e internacionales a modicos precios.");
+
+                Message.Leng.put("op1", "Iniciar Sesión");
+                Message.Leng.put("op2", "Vuelos");
+                Message.Leng.put("op3", "Registrarse");
+                Message.Leng.put("op4", "Cerrar Sesion");
+                Message.Leng.put("op5", "Modificar Datos");
+                Message.Leng.put("op6", "Datos Ficticios");
+                Message.Leng.put("op7", "Historial de compras");
+
+                Message.Leng.put("id", "Idioma");
+                Message.Leng.put("id1", "Español");
+                Message.Leng.put("id2", "Ingles");
+
+                Message.Leng.put("b", "Buscar");
+                Message.Leng.put("b1", "Buscar Vuelos");
+                Message.Leng.put("b2", "Buscar Tiquete");
+                Message.Leng.put("b3", "Buscar Factura");
+                Message.Leng.put("b4", "Rango de Precio");
+                Message.Leng.put("b5", "Valor Minimo");
+                Message.Leng.put("b6", "Valor maximo");
+
+                Message.Leng.put("prof", "Perfil");
+
+                Message.Leng.put("mod", "Modificar Datos");
+                Message.Leng.put("mod1", "Modificar Tiquete");
+                Message.Leng.put("mod2", "Modificar Perfil");
+                Message.Leng.put("mod3", "Perfil modificado exitosamente");
+
+                Message.Leng.put("data", "Informacion");
+                Message.Leng.put("data1", "Nombre");
+                Message.Leng.put("data2", "Pais");
+                Message.Leng.put("data3", "Numero telefonico");
+                Message.Leng.put("data4", "Fecha de nacimiento");
+                Message.Leng.put("data5", "E-mail");
+                Message.Leng.put("data6", "Direccion");
+                Message.Leng.put("data7", "Contraseña");
+                Message.Leng.put("data8", "Tipo Documento");
+                Message.Leng.put("data9", "Numero Documento");
+                Message.Leng.put("data10", "Fecha de Nacimiento");
+                Message.Leng.put("data11", "Codigo");
+                Message.Leng.put("data12", "Fecha");
+
+                Message.Leng.put("rec1", "Intente de nuevo");
+                Message.Leng.put("rec2", "Reiniciando...");
+
+                Message.Leng.put("sign", "Cuenta creada exitosamente");
+                Message.Leng.put("sign1", "ID existente. Por favor intente otro.");
+                Message.Leng.put("sign2", "ID inexistente. Por favor intente de nuevo.");
+                Message.Leng.put("sign3", "Contraseña incorrecta. Por favor intente de nuevo.");
+                Message.Leng.put("sign4", "Sesión iniciada correctamente");
+                Message.Leng.put("sign5", "Error iniciando sesión.");
+                Message.Leng.put("sign6", "Recuperar contraseña");
+                Message.Leng.put("sign7", "Sesion cerrada");
+                Message.Leng.put("buy", "Producto");
+                Message.Leng.put("buy0", "Productos");
+                Message.Leng.put("buy1", "Producto comprado exitosamente");
+                Message.Leng.put("buy2", "Cancelar compra");
+
+                Message.Leng.put("f", "Factura");
+                Message.Leng.put("f1", "Subtotal");
+                Message.Leng.put("f2", "IVA");
+                Message.Leng.put("f3", "Total");
+                Message.Leng.put("f4", "Numero de factura");
+
+            } else if (leng.equals("eng")) {
+                Message.Leng.put("w1", "Welcome");
+                Message.Leng.put("w2", "Travel World is a Web company dedicated to the fast and secure commercialization of national and international flights at modest prices.");
+
+                Message.Leng.put("op1", "Login");
+                Message.Leng.put("op2", "Flights");
+                Message.Leng.put("op3", "Register");
+                Message.Leng.put("op4", "Close Session");
+                Message.Leng.put("op5", "Modify Data");
+                Message.Leng.put("op6", "Fictitious Data");
+                Message.Leng.put("op7", "Purchase history");
+                
+                Message.Leng.put("id", "Language");
+                Message.Leng.put("id1", "Spanish");
+                Message.Leng.put("id2", "English");
+                
+                Message.Leng.put("b", "Search");
+                Message.Leng.put("b1", "Search Flights");
+                Message.Leng.put("b2", "Search Ticket");
+                Message.Leng.put("b3", "Find Invoice");
+                Message.Leng.put("b4", "Price Range");
+                Message.Leng.put("b5", "Minimum Value");
+                Message.Leng.put("b6", "Maximum value");
+                
+                Message.Leng.put("prof", "Profile");
+
+                Message.Leng.put("mod", "Modify Data");
+                Message.Leng.put("mod1", "Modify Ticket");
+                Message.Leng.put("mod2", "Modify Profile");
+                Message.Leng.put("mod3", "Successfully modified profile");
+                
+                Message.Leng.put("data", "Information");
+                Message.Leng.put("data1", "Name");
+                Message.Leng.put("data2", "Country");
+                Message.Leng.put("data3", "Phone number");
+                Message.Leng.put("data4", "Date of birth");
+                Message.Leng.put("data5", "E-mail");
+                Message.Leng.put("data6", "Address");
+                Message.Leng.put("data7", "Password");
+                Message.Leng.put("data8", "Document Type");
+                Message.Leng.put("data9", "Document Number");
+                Message.Leng.put("data10", "Date of Birth");
+                Message.Leng.put("data11", "Code");
+                Message.Leng.put("data12", "Date");
+                
+                Message.Leng.put("rec1", "Try again");
+                Message.Leng.put("rec2", "Restarting ...");
+                Message.Leng.put("sign", "Account successfully created");
+                Message.Leng.put("sign1", "Existing ID. Please try another.");
+                Message.Leng.put("sign2", "Non-existent ID. Please try again.");
+                Message.Leng.put("sign3", "Incorrect password, please try again.");
+                Message.Leng.put("sign4", "Session started successfully");
+                Message.Leng.put("sign5", "Error logging in.");
+                Message.Leng.put("sign6", "Recover password");
+                Message.Leng.put("sign7", "Session closed");
+                
+                Message.Leng.put("buy", "Product");
+                Message.Leng.put("buy0", "Products");
+                Message.Leng.put("buy1", "Product successfully purchased");
+                Message.Leng.put("buy2", "Cancel purchase");
+                
+                Message.Leng.put("f", "Invoice");
+                Message.Leng.put("f1", "Subtotal");
+                Message.Leng.put("f2", "IVA"); 
+                Message.Leng.put("f3", "Total");
+                Message.Leng.put("f4", "Invoice number");
+            }
+        }
     }
-
-    public static void getmensajesesp(String key) {
-        System.out.println(Esp.get(key));
-    }
-
-    public static void getmensajeseng(String key) {
-        System.out.println(Eng.get(key));
-    }
-
 }
-

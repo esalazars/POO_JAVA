@@ -5,7 +5,7 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">EXITO EN EL LLAMADO AL DIRECTORIO</h1>
-          
+          <p>${Lenguage["w1"]} Ojala se muestre</p>
           <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         </div>
       </div>
