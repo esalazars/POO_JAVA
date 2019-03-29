@@ -34,7 +34,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Idioma</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <c:if test="${empty Lenguage}">
+                            <c:if test="${not empty message}">
                             <a class="dropdown-item" href="/index?opcion=eng" value="eng">English</a>
                             <a class="dropdown-item" href="/index?opcion=spa" value="esp">Español</a>
                             </c:if>
