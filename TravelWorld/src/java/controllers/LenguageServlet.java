@@ -17,7 +17,7 @@ public class LenguageServlet extends HttpServlet  {
     public static void setMessages(HttpServletRequest request){
         String opcion = request.getParameter("option");
         if(opcion == null){opcion = "";}
-        if(opcion.equals("spa")){
+        if(opcion.equals("esp")){
             request.setAttribute("message", Message.ESP);
         }else if(opcion.equals("eng")){
             request.setAttribute("message", Message.ENG);
