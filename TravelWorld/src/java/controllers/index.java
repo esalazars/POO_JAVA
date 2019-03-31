@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import util.Message;
 
 
-@WebServlet(urlPatterns = {"/"})
+@WebServlet(urlPatterns = {"/index"})
 public class index extends LenguageServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Configuranfo mensaes segun idioma
-        setMessages(request);        
+        setMessages(request);
         RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         
         view.forward(request, response);  

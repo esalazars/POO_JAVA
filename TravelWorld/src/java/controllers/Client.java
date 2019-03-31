@@ -14,25 +14,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = {"/Client"})
-public class Client extends HttpServlet {
+public class Client extends LenguageServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        setMessages(request);
         String opcion = request.getParameter("option");
         if(opcion==null){opcion = "";}
         RequestDispatcher view = request.getRequestDispatcher("Exito.jsp");
-        if(opcion.equals("ModifyProfile")){
+        if(opcion.equals("modifyprofile")){
             view = request.getRequestDispatcher("modifyData.jsp");
-        }else if(opcion.equals("CloseSession")){
+        }else if(opcion.equals("closesession")){
             view = request.getRequestDispatcher("index.jsp");
         }else if(opcion.equals("history")){
             view = request.getRequestDispatcher("History.jsp");
-        }else if(opcion.equals("LogIn")){
+        }else if(opcion.equals("login")){
             view = request.getRequestDispatcher("LogIn.jsp");
-        }else if(opcion.equals("SingUp")){
-            view = request.getRequestDispatcher("SignUp.jsp");
-        }else if(opcion.equals("RecoveryPass")){
+        }else if(opcion.equals("singup")){
+            view = request.getRequestDispatcher("Exito.jsp");
+        }else if(opcion.equals("recoverypass")){
             view = request.getRequestDispatcher("RecoveryPassw.jsp");
         }
         view.forward(request, response);  

@@ -19,7 +19,7 @@ public class Client extends Person {
     private String country;
     private int phone;
     private String direction;
-    private String birthdate;
+    private Calendar birthdate;
     private String password;
     private String document_type;
     private String sex;
@@ -27,7 +27,7 @@ public class Client extends Person {
     private boolean state_login;
 
     public Client(String name, int id, String email, String country, int phone,
-            String direction, String password, String document_type, String sex) {
+            String direction, String password, String document_type, String sex,String birth) {
         super(email);
         this.setName(name);
         this.setId(id);
@@ -37,6 +37,7 @@ public class Client extends Person {
         this.setPassword(password);
         this.setDocument_type(document_type);
         this.setSex(sex);
+        this.setBirthdate(birth);
         this.setPoints(0);
     }
 
@@ -61,7 +62,13 @@ public class Client extends Person {
     }
 
     public void setBirthdate(String birthdate) {
-        this.birthdate = birthdate;
+        //Formato year//month//day
+        String[] fecha = birthdate.split("-");
+        int year = Integer.parseInt(fecha[0]), month = Integer.parseInt(fecha[1]),
+                day =Integer.parseInt(fecha[2]);
+        Calendar birth = Calendar.getInstance();
+        birth.set(year, month,day);
+        this.birthdate = birth;
     }
 
     public void setPassword(String password) {
@@ -104,7 +111,7 @@ public class Client extends Person {
         return this.direction;
     }
 
-    public String getBirthdate() {
+    public Calendar getBirthdate() {
         return this.birthdate;
     }
 
@@ -129,14 +136,14 @@ public class Client extends Person {
     }
 
     public static String register(String name, int id, String email, String country, int phone,
-            String direction, String password, String document_type, String sex) {
+            String direction, String password, String document_type, String sex,String birth) {
 
         String date = "";
         if (Client.clients.containsKey(id)) {
             //retorne mensaje que diga usuario existente
         } else {
-            Client var = new Client(name, id, email,country, phone, direction, password,
-                    document_type, sex);
+            Client var = new Client(name,id,email, country, phone,
+            direction, password, document_type, sex,birth);
             Client.clients.put(id, var);
             var.setState_login(true);
             //registro con exito
@@ -159,14 +166,16 @@ public class Client extends Person {
         return "";
     }
 
-    public Boolean modify_data(String name, String country, int phone,
-            String direction, String sex) {
+    public Boolean modify_data(String name, String email, String country, int phone,
+            String direction, String document_type, String sex, String birth) {
         try {
             this.setName(name);
             this.setCountry(country);
             this.setPhone(phone);
             this.setDirection(direction);
-            this.setSex(sex);
+            this.setSex(sex); 
+            this.setDocument_type(document_type);
+            this.setBirthdate(birth);
             return true;
         } catch (Exception var1) {
             return false;

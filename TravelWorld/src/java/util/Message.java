@@ -20,9 +20,10 @@ public class Message {
             put("esp","Spanish");
             put("w1", "Welcome");
             put("w2", "Travel World is a Web company dedicated to the fast and secure commercialization of national and international flights at modest prices.");
-            put("op1", "Login");
+            put("op0","Options");
+            put("op1", "Log In");
             put("op2", "Flights");
-            put("op3", "Register");
+            put("op3", "Sign Up");
             put("op4", "Close Session");
             put("op5", "Modify Data");
             put("op6", "Fictitious Data");
@@ -39,7 +40,22 @@ public class Message {
             put("b4", "Price Range");
             put("b5", "Minimum Value");
             put("b6", "Maximum value");
-
+            
+            put ("f0", "The flights currently available are listed below");
+            put ("f1", "Origin");
+            put ("f2", "Destination");
+            put ("f3", "Departure Airport");
+            put ("f4", "Arrival Airport");put ("f5", "Code");
+            put ("f6", "Price");
+            put ("f7", "Maximum Passagers");
+            put ("f8", "Departure Date");
+            put ("f9", "Arrival Date");
+            put ("f10", "Boarding Door");
+            put ("f11", "Available Seating");
+            put ("f12", "Airplane");
+            put ("f13", "Airline");
+            put ("f14", "Approach Time");
+            
             put("prof", "Profile");
 
             put("mod", "Modify Data");
@@ -82,6 +98,17 @@ public class Message {
             put("f2", "IVA");
             put("f3", "Total");
             put("f4", "Invoice number");
+            
+            put ("load1", "Creation of fictitious data");
+            put ("load2", "Loading customer data ...");
+            put ("load3", "Customer data loaded successfully");
+            put ("load4", "Failure trying to load Customer Data, try again.");
+            put ("load5", "Loading flight data ...");
+            put ("load6", "Flight data loaded successfully");
+            put ("load7", "Failure trying to load Flight Data, try again");
+            put ("load8", "Loading airline data ...");
+            put ("load9", "Data of Airlines loaded successfully");
+            put ("load10", "Failure trying to load Airlines Data, try again");
         }
     };
     public static HashMap<String, String> ESP = new HashMap<String, String>() {
@@ -90,6 +117,7 @@ public class Message {
             put("esp","Español");
             put("w1", "Bienvenido");
             put("w2", "Travel World es una empresa Web dedicada a la comercializacion de manera rapida y segura de tiquetes de vuelos nacionales e internacionales a modicos precios.");
+            put("op0","Opciones");
             put("op1", "Iniciar Sesión");
             put("op2", "Vuelos");
             put("op3", "Registrarse");
@@ -110,6 +138,22 @@ public class Message {
             put("b5", "Valor Minimo");
             put("b6", "Valor maximo");
 
+            put("f0","Los vuelos actualmentes disponibles son listados a continuacion");
+            put("f1","Origen");
+            put("f2","Destino");
+            put("f3","Aeropuerto de Salida");
+            put("f4","Aeropuerto de Llegada");
+            put("f5","Codigo");
+            put("f6","Precio");
+            put("f7","Pasageros maximos");
+            put("f8","Fecha de Partida");
+            put("f9","Fecha de LLegada");
+            put("f10","Puerta de Abordaje");
+            put("f11","Asientos Disponibles");
+            put("f12","Avion");
+            put("f13","Aerolinea");
+            put("f14","Hora de Abordaje");
+            
             put("prof", "Perfil");
 
             put("mod", "Modificar Datos");
@@ -130,6 +174,7 @@ public class Message {
             put("data10", "Fecha de Nacimiento");
             put("data11", "Codigo");
             put("data12", "Fecha");
+            
 
             put("rec1", "Intente de nuevo");
             put("rec2", "Reiniciando...");
@@ -152,6 +197,17 @@ public class Message {
             put("f2", "IVA");
             put("f3", "Total");
             put("f4", "Numero de factura");
+            
+            put("load1","Creacion de datos ficticios");
+            put("load2","Cargando datos de clientes...");
+            put("load3","Datos de Clientes cargados de manera exitosa.");
+            put("load4","Fracaso intentando cargar Datos de Clientes, intente de nuevo.");
+            put("load5","Cargando datos de vuelos...");
+            put("load6","Datos de Vuelos cargados de manera exitosa");
+            put("load7","Fracaso intentando cargar Datos de Vuelos, intente de nuevo");
+            put("load8","Cargando datos de aerolineas...");
+            put("load9","Datos de Aerolineas cargados de manera exitosa");
+            put("load10","Fracaso intentando cargar Datos de Aerolineas, intente de nuevo");
         }
     };
 }
