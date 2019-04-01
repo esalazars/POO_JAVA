@@ -198,7 +198,8 @@ public class Message {
             put("f3", "Total");
             put("f4", "Numero de factura");
             
-            put("load1","Creacion de datos ficticios");
+            put("load0","Creacion de datos ficticios");
+            put("load1","Imprimiendo resultados de la carga de datos");
             put("load2","Cargando datos de clientes...");
             put("load3","Datos de Clientes cargados de manera exitosa.");
             put("load4","Fracaso intentando cargar Datos de Clientes, intente de nuevo.");
@@ -208,6 +209,7 @@ public class Message {
             put("load8","Cargando datos de aerolineas...");
             put("load9","Datos de Aerolineas cargados de manera exitosa");
             put("load10","Fracaso intentando cargar Datos de Aerolineas, intente de nuevo");
+            put("load11","Finalizar y volver a inicio");
         }
     };
 }

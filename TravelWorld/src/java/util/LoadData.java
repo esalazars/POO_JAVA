@@ -46,13 +46,15 @@ public class LoadData {
         Flight f2 = new Flight("002", 1500000, 600, "Bogota", "Santiago de Chile", "Olaya Herrera",
                 "Aeropuerto Internacional Arturo Merino Benitez", salida, llegada, salida, "P12",
                 asientos, "Airbus 360", a2);
-        loadTxt();
+        //loadTxt();
     }
 
     public static void loadTxt() throws IOException {
-        //
+        
+        /*
         String sep = File.separator;
-        String url = ".." + sep + "data" + sep + "ClientData.txt";
+        //String url = "." + sep + "data" + sep + "ClientData.txt";
+        String url = "."+sep+"ClientData.txt";
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
@@ -60,7 +62,7 @@ public class LoadData {
         try {
             // Apertura del fichero y creacion de BufferedReader para poder
             // hacer una lectura comoda (disponer del metodo readLine()).
-            archivo = new File("url");
+            archivo = new File(url);
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);
 
@@ -70,7 +72,7 @@ public class LoadData {
                 processData(linea);
             }            
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         } finally {
             // En el finally cerramos el fichero, para asegurarnos
             // que se cierra tanto si todo va bien como si salta 
@@ -80,9 +82,9 @@ public class LoadData {
                     fr.close();
                 }
             } catch (Exception e2) {
-                //e2.printStackTrace();
+                e2.printStackTrace();
             }
-        }
+        }*/
     }
     public static void processData(String data){
         String[] info = data.split(";");

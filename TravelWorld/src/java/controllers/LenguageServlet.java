@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package controllers;
-import java.util.HashMap;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import util.Message;
 
 /**
@@ -17,9 +15,9 @@ import util.Message;
 public class LenguageServlet extends HttpServlet  {
     
     public static void setMessages(HttpServletRequest request){
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
         
-        String opcion = request.getParameter("option");
+        /*String opcion = request.getParameter("option");
         HashMap<String,String> lenguage = Message.ENG;
         if(opcion == null){opcion = "";}
         if(opcion.equals("esp")){
@@ -32,7 +30,7 @@ public class LenguageServlet extends HttpServlet  {
             if(null != session.getAttribute("message")){
                 lenguage =(HashMap<String,String>) session.getAttribute("message");
             }      
-        }
-        request.setAttribute("message", lenguage);
+        }*/
+        request.setAttribute("message", Message.ESP);
     }    
 }

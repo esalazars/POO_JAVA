@@ -4,47 +4,51 @@
 
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">${message["w1"]}</h1>
-            <p>${message["w2"]}</p>
-            <p>${data}</p>
+            <h1 class="display-3">${message["load0"]}</h1>
+            <p>${message[load1]}</p>
+            <p><a class="btn btn-primary btn-lg" href="/index" role="button">${message["load11"]}</a></p>
         </div>
-
     </div>
     <div class="container">
         <div class="row">
-            <p>Imprimiendo resultados de la carga de datos <br></p>
+            <!-- Aerolineas-->
+            <div class="col-md-4">
+                <h2>${message["load8"]}</h2>
+                <c:if test="${dataAirlines==true}">
+                    <c:if test="${not empty airlines}">
+                        <p>${message["load9"]}</p>                       
+                    </c:if>
+                    <c:if test="${empty airlines}">
+                        <p>${message["load10"]}</p>                       
+                    </c:if>   
+                </c:if>
+            </div> 
+            <!-- Vuelos-->
+            <div class="col-md-4">
+                <h2>${message["load5"]}</h2>
+                <c:if test="${dataFly==true}">
+                    <c:if test="${not empty flights}">
+                        <p>${message["load6"]}</p>                       
+                    </c:if>
+                        <c:if test="${empty flights}">
+                        <p>${message["load7"]}</p>                       
+                    </c:if>
+                </c:if>
+            </div>
+            <!-- Clientes-->
+            <div class="col-md-4">
+                <h2>${message["load2"]}</h2>
                 <c:if test="${dataClients==true}">
                     <c:if test="${not empty clients}">
-                    <p>Imprimiendo resultados de la carga de datos------Clientes cargados</p>        
-                    <c:forEach items="${clients}" var="cliente">
-                        <div class="col-md-4">
-                            <h2>Nombre: ${cliente.value.getName()}</h2>
-                            <p>${cliente.value.getDocument_type}: ${cliente.value.getId()}</p>
-                            <p>Direccion: ${cliente.value.getDirection()}</p>                                                 
-                        </div>
-                    </c:forEach>
-                </c:if>                    
-            </c:if>
-            <c:if test="${dataAirlines==true}">
-                <c:if test="${not empty airlines}">
-                    <p>Imprimiendo resultados de la carga de datos------Aerolineas cargados<br></p>  
+                        <p>${message["load3"]}</p>                       
+                    </c:if>
+                    <c:if test="${empty clients}">
+                        <p>${message["load4"]}</p>                       
+                    </c:if>
                 </c:if>
-            </c:if>
-            <c:if test="${dataFly==true}">
-                <c:if test="${not empty flights}">
-                    <p>Imprimiendo resultados de la carga de datos------Vuelos cargados<br></p>   
-                    <c:forEach items="${flights}" var="vuelo" >
-                        <div class="col-md-4">
-                            <h2>${vuelo.value.getDepartureCity()} -> ${vuelo.value.getArrivalCity()}</h2>
-                            <p>${vuelo.value.getCode()}</p>
-                            <p>value = ${vuelo.value} </p>
-                            <p>${vuelo.value.getCode()}</p>                                                 
-                        </div>
-                    </c:forEach> 
-                </c:if>
-            </c:if>
-            <hr>
+            </div> 
         </div>
+        <hr>
     </div> <!-- /container -->
 
 </main>
