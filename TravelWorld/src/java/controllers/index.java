@@ -53,7 +53,6 @@ public class index extends LenguageServlet {
         session.setAttribute("Clients", clientes);
         request.setAttribute("clients", clientes);
         RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-
         view.forward(request, response);
     }
 
