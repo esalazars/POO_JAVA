@@ -27,7 +27,8 @@ public class Client extends Person {
     private boolean state_login;
 
     public Client(String name, int id, String email, String country, int phone,
-            String direction, String password, String document_type, String sex) {
+            String direction, String password, String document_type, String sex,
+            boolean state_login) {
         super(email);
         this.setName(name);
         this.setId(id);
@@ -38,6 +39,7 @@ public class Client extends Person {
         this.setDocument_type(document_type);
         this.setSex(sex);
         this.setPoints(0);
+        this.setState_login(false);
     }
 
     public void setName(String name) {
@@ -171,5 +173,13 @@ public class Client extends Person {
         } catch (Exception var1) {
             return false;
         }
+    }
+    
+    public Integer logout(){
+        if(this.getState_login()==true){
+            this.setState_login(false);
+        }else{
+            //retornar que no tiene seccion iniciada
+        }return 3;
     }
 }
