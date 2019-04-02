@@ -19,7 +19,7 @@ public class Client extends Person {
     private String country;
     private int phone;
     private String direction;
-    private Calendar birthdate;
+    private String birthdate;
     private String password;
     private String document_type;
     private String sex;
@@ -39,6 +39,7 @@ public class Client extends Person {
         this.setSex(sex);
         this.setBirthdate(birth);
         this.setPoints(0);
+        clients.put(id, this);
     }
 
     public void setName(String name) {
@@ -61,13 +62,8 @@ public class Client extends Person {
         this.direction = direction;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(String birth) {
         //Formato year//month//day
-        String[] fecha = birthdate.split("-");
-        int year = Integer.parseInt(fecha[0]), month = Integer.parseInt(fecha[1]),
-                day =Integer.parseInt(fecha[2]);
-        Calendar birth = Calendar.getInstance();
-        birth.set(year, month,day);
         this.birthdate = birth;
     }
 
@@ -111,7 +107,7 @@ public class Client extends Person {
         return this.direction;
     }
 
-    public Calendar getBirthdate() {
+    public String getBirthdate() {
         return this.birthdate;
     }
 

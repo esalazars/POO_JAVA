@@ -6,11 +6,9 @@
 package controllers;
 
 import java.io.IOException;
-import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,25 +26,15 @@ public class Client extends LenguageServlet{
         HttpSession session = request.getSession();
         //Lista de objetos
         //Aerolineas
-        HashMap<String,Airline> aerolineas = new HashMap<String,Airline>();
-        if(null != session.getAttribute("Airlines")){
-            aerolineas=(HashMap<String,Airline>) session.getAttribute("Airlines");
-        }
-        request.setAttribute("airlines", aerolineas);
+        session.setAttribute("Airlines", Airline.aerolineas);
+        request.setAttribute("airlines",Airline.aerolineas);
         //Vuelos
-        HashMap<String,Flight> vuelos = new HashMap<String,Flight>();
-        if(null != session.getAttribute("Flights")){
-            vuelos=(HashMap<String,Flight>) session.getAttribute("Flights");
-        }
-        request.setAttribute("flights", vuelos);
+        session.setAttribute("Flights", Flight.flights);
+        request.setAttribute("flights", Flight.flights);
         //Clientes
-        HashMap<String,Client> clientes = new HashMap<String,Client>();
-        if(null != session.getAttribute("Clients")){
-            clientes=(HashMap<String,Client>) session.getAttribute("Clients");
-        }
-        request.setAttribute("clients", clientes);
-        
-        
+        session.setAttribute("Clients", modules.Client.clients);
+        request.setAttribute("clients", modules.Client.clients);
+                
         String opcion = request.getParameter("option");
         if(opcion==null){opcion = "";}
         RequestDispatcher view = request.getRequestDispatcher("Exito.jsp");
@@ -69,30 +57,19 @@ public class Client extends LenguageServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         setMessages(request);
-        //Configura la sesion
+        //Configurando la sesion
         HttpSession session = request.getSession();
         //Lista de objetos
         //Aerolineas
-        HashMap<String,Airline> aerolineas = new HashMap<String,Airline>();
-        if(null != session.getAttribute("Airlines")){
-            aerolineas=(HashMap<String,Airline>) session.getAttribute("Airlines");
-        }
-        session.setAttribute("Airlines", aerolineas);
-        request.setAttribute("airlines", aerolineas);
+        session.setAttribute("Airlines", Airline.aerolineas);
+        request.setAttribute("airlines",Airline.aerolineas);
         //Vuelos
-        HashMap<String,Flight> vuelos = new HashMap<String,Flight>();
-        if(null != session.getAttribute("Flights")){
-            vuelos=(HashMap<String,Flight>) session.getAttribute("Flights");
-        }
-        session.setAttribute("Flights", vuelos);
-        request.setAttribute("flights", vuelos);
+        session.setAttribute("Flights", Flight.flights);
+        request.setAttribute("flights", Flight.flights);
         //Clientes
-        HashMap<String,Client> clientes = new HashMap<String,Client>();
-        if(null != session.getAttribute("Clients")){
-            clientes=(HashMap<String,Client>) session.getAttribute("Clients");
-        }
-        session.setAttribute("Clients", clientes);
-        request.setAttribute("clients", clientes);
+        session.setAttribute("Clients", modules.Client.clients);
+        request.setAttribute("clients", modules.Client.clients);
+        
 
         RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         view.forward(request, response);

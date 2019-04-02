@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controllers;
 
 import java.io.IOException;
@@ -11,8 +16,8 @@ import modules.Airline;
 import modules.Flight;
 import modules.Client;
 
-@WebServlet(urlPatterns = {"/EXITO"})
-public class Facture extends LenguageServlet {
+@WebServlet(urlPatterns = {"/Home/SignUp"})
+public class Airlines extends LenguageServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,7 +42,7 @@ public class Facture extends LenguageServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        setMessages(request);
+       setMessages(request);
         //Configurando la sesion
         HttpSession session = request.getSession();
         //Lista de objetos
@@ -49,7 +54,8 @@ public class Facture extends LenguageServlet {
         request.setAttribute("flights", Flight.flights);
         //Clientes
         session.setAttribute("Clients", Client.clients);
-        request.setAttribute("clients", Client.clients);        
+        request.setAttribute("clients", Client.clients);
+        
 
         RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         view.forward(request, response);

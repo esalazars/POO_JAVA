@@ -21,7 +21,7 @@ public class Calification {
     public static List<Calification> calificaciones = new LinkedList<Calification>();
     
     public Calification(Calification calif){
-        new Calification(calif.getScore(),calif.getAirline());
+        this(calif.getScore(),calif.getAirline());
     }
     
     public Calification(float score,Airline aerolinea){

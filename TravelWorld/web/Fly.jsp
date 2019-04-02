@@ -15,18 +15,14 @@
                 <!-- Example row of columns -->
                 <c:forEach items="${flights}" var="vuelo" >
                     <div class="col-md-4">
-                        <h2>${vuelo.value.getDepartureCity()} -> ${vuelo.value.getArrivalCity()}</h2>
-                        <p>${vuelo.value.getCode()}</p>
-                        <p>value = ${vuelo.value} </p>
-                        <p>${vuelo.value.getCode()}</p>                                                 
+                        <h2>${message["f1"]} ${vuelo.value.getDepartureCity()}<br>${message["f2"]} ${vuelo.value.getArrivalCity()}</h2>
+                        <p>${message["f8"]} <time> ${vuelo.value.getDepartureDate()}</time>></time></p>
+                        <p>${message["f6"]} ${vuelo.value.getPrice()} </p>
+                        
+                        <p><a class="btn btn-secondary" href="#" role="button">${message["f15"]}&raquo;</a></p>
                     </div>
                 </c:forEach> 
             </c:if>
-            <div class="col-md-4">
-                <h2>Heading</h2>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div>
             <div class="col-md-4">
                 <h2>Heading</h2>
                 <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>

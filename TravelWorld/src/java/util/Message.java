@@ -139,20 +139,21 @@ public class Message {
             put("b6", "Valor maximo");
 
             put("f0","Los vuelos actualmentes disponibles son listados a continuacion");
-            put("f1","Origen");
-            put("f2","Destino");
-            put("f3","Aeropuerto de Salida");
-            put("f4","Aeropuerto de Llegada");
+            put("f1","Origen:");
+            put("f2","Destino:");
+            put("f3","Aeropuerto de Salida:");
+            put("f4","Aeropuerto de Llegada:");
             put("f5","Codigo");
-            put("f6","Precio");
+            put("f6","Precio:");
             put("f7","Pasageros maximos");
-            put("f8","Fecha de Partida");
+            put("f8","Fecha de Partida:");
             put("f9","Fecha de LLegada");
             put("f10","Puerta de Abordaje");
             put("f11","Asientos Disponibles");
             put("f12","Avion");
             put("f13","Aerolinea");
             put("f14","Hora de Abordaje");
+            put("f15","Ver Detalles");
             
             put("prof", "Perfil");
 
@@ -192,11 +193,11 @@ public class Message {
             put("buy1", "Producto comprado exitosamente");
             put("buy2", "Cancelar compra");
 
-            put("f", "Factura");
-            put("f1", "Subtotal");
-            put("f2", "IVA");
-            put("f3", "Total");
-            put("f4", "Numero de factura");
+            put("fa", "Factura");
+            put("fa1", "Subtotal");
+            put("fa2", "IVA");
+            put("fa3", "Total");
+            put("fa4", "Numero de factura");
             
             put("load0","Creacion de datos ficticios");
             put("load1","Imprimiendo resultados de la carga de datos");

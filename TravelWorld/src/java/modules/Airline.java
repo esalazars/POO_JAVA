@@ -24,7 +24,7 @@ public class Airline {
     }
     
     public Airline(Airline air){
-        new Airline(air.getNombre(),air.getSede());
+        this(air.getNombre(),air.getSede());
     }
 
     public void setNombre(String nombre) {

@@ -10,8 +10,6 @@ package modules;
  * @author user Eladio Salazar Suarez
  */
 import java.util.HashMap;
-import java.util.Calendar;
-import java.util.List;
 
 public final class Flight {//Ya no hay herencia
 
@@ -22,9 +20,9 @@ public final class Flight {//Ya no hay herencia
     private String arrivalCity;
     private String departureAirport;
     private String arrivalAirport;
-    private Calendar departureDate;
-    private Calendar arrivalDate;
-    private Calendar boardingTime;
+    private String departureDate;
+    private String arrivalDate;
+    private String boardingTime;
     private String boardingDoor;
     //Los asientos seran nombre y true o false para disponible o no
     private HashMap<String, Boolean> seats = new HashMap<String, Boolean>();
@@ -36,7 +34,7 @@ public final class Flight {//Ya no hay herencia
     public static HashMap<String, Flight> flights = new HashMap<String, Flight>();
 
     public Flight(Flight vuelo){
-        new Flight(vuelo.getCode(),vuelo.getPrice(),vuelo.getMaxPassengers(),
+        this(vuelo.getCode(),vuelo.getPrice(),
                 vuelo.getDepartureCity(),vuelo.getArrivalCity(),
                 vuelo.getDepartureAirport(),vuelo.getArrivalAirport(),
                 vuelo.getDepartureDate(),vuelo.getArrivalDate(),vuelo.getBoardingTime(),
@@ -44,14 +42,14 @@ public final class Flight {//Ya no hay herencia
                 vuelo.getAirline());
     }
     
-    public Flight(String code, double price, int maxPassengers, String departureCity,
+    public Flight(String code, double price, String departureCity,
             String arrivalCity, String departureAirport, String arrivalAirport,
-            Calendar departureDate, Calendar arrivalDate, Calendar boardingTime,
+            String departureDate, String arrivalDate, String boardingTime,
             String boardingDoor, HashMap<String, Boolean> seats, String airplane,
             Airline airline) {
         this.setCode(code);
         this.setPrice(price);
-        this.setMaxPassengers(maxPassengers);
+        this.setMaxPassengers((int)seats.size());
         this.setDepartureCity(departureCity);
         this.setArrivalCity(arrivalCity);
         this.setDepartureAirport(departureAirport);
@@ -67,14 +65,14 @@ public final class Flight {//Ya no hay herencia
         Flight.flights.put(this.getCode(), this);
     }
     
-    public Flight(String code, double price, int maxPassengers, String departureCity,
+    public Flight(String code, double price, String departureCity,
             String arrivalCity, String departureAirport, String arrivalAirport,
-            Calendar departureDate, Calendar arrivalDate, Calendar boardingTime,
+            String departureDate, String arrivalDate, String boardingTime,
             String boardingDoor, String[] seats, String airplane,
             Airline airline) {
         this.setCode(code);
         this.setPrice(price);
-        this.setMaxPassengers(maxPassengers);
+        this.setMaxPassengers(seats.length);
         this.setDepartureCity(departureCity);
         this.setArrivalCity(arrivalCity);
         this.setDepartureAirport(departureAirport);
@@ -155,29 +153,29 @@ public final class Flight {//Ya no hay herencia
     }
 
     //Fecha de Salida
-    public void setDepartureDate(Calendar fecha) {
+    public void setDepartureDate(String fecha) {
         this.departureDate = fecha;
     }
 
-    public Calendar getDepartureDate() {
+    public String getDepartureDate() {
         return this.departureDate;
     }
 
     //Fecha de llegada
-    public void setArrivalDate(Calendar fecha) {
+    public void setArrivalDate(String fecha) {
         this.arrivalDate = fecha;
     }
 
-    public Calendar getArrivalDate() {
+    public String getArrivalDate() {
         return this.arrivalDate;
     }
 
     //Hora de abordaje
-    public void setBoardingTime(Calendar fecha) {
+    public void setBoardingTime(String fecha) {
         this.boardingTime = fecha;
     }
 
-    public Calendar getBoardingTime() {
+    public String getBoardingTime() {
         return this.boardingTime;
     }
 
