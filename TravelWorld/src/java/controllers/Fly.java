@@ -30,17 +30,34 @@ public class Fly extends LenguageServlet {
         //Lista de objetos
         //Aerolineas
         session.setAttribute("Airlines", Airline.aerolineas);
-        request.setAttribute("airlines",Airline.aerolineas);
+        request.setAttribute("airlines", Airline.aerolineas);
         //Vuelos
         session.setAttribute("Flights", Flight.flights);
         request.setAttribute("flights", Flight.flights);
         //Clientes
         session.setAttribute("Clients", modules.Client.clients);
         request.setAttribute("clients", modules.Client.clients);
-        
+        //tomamos la opcion
+        String opcion = request.getParameter("option");
         RequestDispatcher view = request.getRequestDispatcher("Fly.jsp");
-        view.forward(request, response);  
+        if (opcion == null) {
+            opcion = "";
+        }
+        if (opcion.equals("detalles")) {
+            request.getRequestDispatcher("Exito.jsp");
+        } else if (opcion.equals("comprar")) {
+            request.getRequestDispatcher("Comprar.jsp");
+        } else if (opcion.equals("buscar")) {
+            request.getRequestDispatcher("Cuscar.jsp");
+        } else if (opcion.equals("cancelar")) {
+            request.getRequestDispatcher("Cancelar.jsp");
+        } else {
+            request.getRequestDispatcher("Fly.jsp");
+        }
+        //RequestDispatcher view = request.getRequestDispatcher("Fly.jsp");
+        view.forward(request, response);
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -50,14 +67,13 @@ public class Fly extends LenguageServlet {
         //Lista de objetos
         //Aerolineas
         session.setAttribute("Airlines", Airline.aerolineas);
-        request.setAttribute("airlines",Airline.aerolineas);
+        request.setAttribute("airlines", Airline.aerolineas);
         //Vuelos
         session.setAttribute("Flights", Flight.flights);
         request.setAttribute("flights", Flight.flights);
         //Clientes
         session.setAttribute("Clients", modules.Client.clients);
         request.setAttribute("clients", modules.Client.clients);
-        
 
         RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         view.forward(request, response);

@@ -16,10 +16,10 @@
                 <c:forEach items="${flights}" var="vuelo" >
                     <div class="col-md-4">
                         <h2>${message["f1"]} ${vuelo.value.getDepartureCity()}<br>${message["f2"]} ${vuelo.value.getArrivalCity()}</h2>
-                        <p>${message["f8"]} <time> ${vuelo.value.getDepartureDate()}</time>></time></p>
+                        <p>${message["f8"]} <time> ${vuelo.value.getDepartureDate()}</time></p>
                         <p>${message["f6"]} ${vuelo.value.getPrice()} </p>
                         
-                        <p><a class="btn btn-secondary" href="#" role="button">${message["f15"]}&raquo;</a></p>
+                        <p><a class="btn btn-secondary" href="/Fly?option=detalles" role="button">${message["f15"]}&raquo;</a></p>
                     </div>
                 </c:forEach> 
             </c:if>
