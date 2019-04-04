@@ -6,19 +6,15 @@
 package controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modules.Airline;
 import modules.Flight;
-import util.Message;
+import util.EnvioDeCorreo;
 
 @WebServlet(urlPatterns = {"/index"})
 public class index extends LenguageServlet {
@@ -39,7 +35,8 @@ public class index extends LenguageServlet {
         //Clientes
         session.setAttribute("Clients", modules.Client.clients);
         request.setAttribute("clients", modules.Client.clients);
-        
+        //Prueba de envio de correo
+        new EnvioDeCorreo().EnvioDeMail("esalazars@unal.edu.co","Una bomba","Prueb de envio de correo cinco para todos");
         RequestDispatcher view = request.getRequestDispatcher("index.jsp");
         view.forward(request, response);
     }
