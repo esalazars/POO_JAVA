@@ -19,7 +19,7 @@
                         <p>${message["f8"]} <time> ${vuelo.value.getDepartureDate()}</time></p>
                         <p>${message["f6"]} ${vuelo.value.getPrice()} </p>
                         
-                        <p><a class="btn btn-secondary" href="/Fly?option=detalles" role="button">${message["f15"]}&raquo;</a></p>
+                        <p><a class="btn btn-secondary" href="./Fly?option=detalles" role="button">${message["f15"]}&raquo;</a></p>
                     </div>
                 </c:forEach> 
             </c:if>

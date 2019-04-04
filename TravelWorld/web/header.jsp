@@ -32,7 +32,7 @@
                     <li class="nav-item active">
                         <!-- Iniciar Sesion-->
                         <c:if test="${!empty message}">
-                            <a class="nav-link" href="/index?option=login">${message["op1"]}</a>
+                            <a class="nav-link" href="/Fly?option=login">${message["op1"]}</a>
                         </c:if>
                         <c:if test="${empty message}">
                             <a class="nav-link" href="/index?option=login">${Message.ESP["op1"]}<span class="sr-only">(current)</span></a>
