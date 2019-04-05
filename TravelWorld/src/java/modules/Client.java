@@ -39,9 +39,29 @@ public class Client extends Person {
         this.setSex(sex);
         this.setBirthdate(birth);
         this.setPoints(0);
+        this.setState_login(false);
         clients.put(id, this);
     }
-
+    public Client(Client c){
+        this(c.getName(),c.getId(),c.getEmail(),c.getCountry(),c.getPhone(),c.getDirection(),
+                c.getPassword(),c.getDocument_type(),c.getSex(),c.getBirthdate());
+    }
+    public Client(){
+        super("nada@nada");
+        this.setName("vacio");
+        this.setId(0);
+        this.setCountry("none");
+        this.setPhone(0);
+        this.setDirection("none");
+        this.setPassword("none");
+        this.setDocument_type("none");
+        this.setSex("none");
+        this.setBirthdate("none");
+        this.setPoints(0);
+        this.setState_login(false);
+        clients.put(id, this);
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -94,6 +114,10 @@ public class Client extends Person {
     public int getId() {
         return this.id;
     }
+    
+    public String getCorreo(){
+        return this.getEmail();
+    }
 
     public String getCountry() {
         return this.country;
@@ -131,41 +155,40 @@ public class Client extends Person {
         return state_login;
     }
 
-    public static String register(String name, int id, String email, String country, int phone,
+    public static boolean register(String name, int id, String email, String country, int phone,
             String direction, String password, String document_type, String sex,String birth) {
-
-        String date = "";
+        
         if (Client.clients.containsKey(id)) {
             //retorne mensaje que diga usuario existente
+            return false;
         } else {
             Client var = new Client(name,id,email, country, phone,
             direction, password, document_type, sex,birth);
-            Client.clients.put(id, var);
-            var.setState_login(true);
             //registro con exito
+            return true;
         }
-        return "";
     }
 
-    public static String login(int id, String password) {
+    public static int login(int id, String password) {
         if (!Client.clients.containsKey(id)) {
             //retorna este usuario no esta registrado
+            return -1;
         } else {
-            if (Client.clients.get(id).equals(password)) {
-
-                // return Client.clients.get(id);
+            if (Client.clients.get(id).getPassword().equals(password)) {
+                Client.clients.get(id).setState_login(true);
+                return Client.clients.get(id).getId();
             } else {
                 //contraseña erronea
-
+                return -2;
             }
         }
-        return "";
     }
 
     public Boolean modify_data(String name, String email, String country, int phone,
             String direction, String document_type, String sex, String birth) {
         try {
             this.setName(name);
+            this.setEmail(email);
             this.setCountry(country);
             this.setPhone(phone);
             this.setDirection(direction);

@@ -125,6 +125,7 @@ public class Message {
             put("op5", "Modificar Datos");
             put("op6", "Datos Ficticios");
             put("op7", "Historial de compras");
+            put("op8", "Aerolineas");
 
             put("id", "Idioma");
             put("id1", "Español");
@@ -172,10 +173,11 @@ public class Message {
             put("data7", "Contraseña");
             put("data8", "Tipo Documento");
             put("data9", "Numero Documento");
-            put("data10", "Fecha de Nacimiento");
+            put("data10", "Sexo");
             put("data11", "Codigo");
             put("data12", "Fecha");
-            
+            put("data13","Sede");
+            put("data14","Calificacion Promedio");            
 
             put("rec1", "Intente de nuevo");
             put("rec2", "Reiniciando...");
@@ -188,11 +190,12 @@ public class Message {
             put("sign5", "Error iniciando sesión.");
             put("sign6", "Recuperar contraseña");
             put("sign7", "Sesion cerrada");
-            put("buy", "Producto");
+            put("buy", "Comprar");
             put("buy0", "Productos");
-            put("buy1", "Producto comprado exitosamente");
-            put("buy2", "Cancelar compra");
-
+            put("buy1", "Producto");
+            put("buy2", "Producto comprado exitosamente");
+            put("buy3", "Cancelar compra");
+            
             put("fa", "Factura");
             put("fa1", "Subtotal");
             put("fa2", "IVA");

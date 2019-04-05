@@ -61,6 +61,7 @@ public class EnvioDeCorreo {
         } catch (Exception e) {
         }
         //fin try-catch
+        System.out.println("Finaliza envio, esperemos que llegue para hoy");
         return false;
     }//fin metodo enviaEmail
 

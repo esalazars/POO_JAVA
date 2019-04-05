@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package controllers;
 
+import static controllers.LenguageServlet.setMessages;
+import controllers.ManageSession;
+import static controllers.ManageSession.setSession;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,9 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modules.Client;
-
-@WebServlet(urlPatterns = {"/Airlines"})
-public class Airlines extends ManageSession {
+import util.EnvioDeCorreo;
+import util.Message;
+/**
+ *
+ * @author user
+ */
+@WebServlet(urlPatterns = {"/Client/CloseSession"})
+public class CloseSession extends ManageSession{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -25,26 +27,27 @@ public class Airlines extends ManageSession {
         setSession(request);
         HttpSession session = request.getSession();
         if (session.getAttribute("Usuario") != null) {
-            Client c = new Client((Client)session.getAttribute("Usuario"));
+            Client c = null;
             session.setAttribute("Usuario", c);
             request.setAttribute("usuario", c);
         } 
-        RequestDispatcher view = request.getRequestDispatcher("Airline.jsp");
-        view.forward(request, response);  
+        RequestDispatcher view = request.getRequestDispatcher("../index.jsp");
+        System.out.println("Close Session Por Get");
+        view.forward(request, response);
     }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         setMessages(request);
-        //Configurando la sesion
         setSession(request);
+        //Configurando la sesion
         HttpSession session = request.getSession();
+        RequestDispatcher view = request.getRequestDispatcher("../index.jsp");
         if (session.getAttribute("Usuario") != null) {
-            Client c = new Client((Client)session.getAttribute("Usuario"));
+            Client c = null;
             session.setAttribute("Usuario", c);
             request.setAttribute("usuario", c);
-        } 
-        RequestDispatcher view = request.getRequestDispatcher("Airline.jsp");
+        }         
+        System.out.println("Close session por post");
         view.forward(request, response);
     }
 }

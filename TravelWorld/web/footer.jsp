@@ -2,9 +2,9 @@
       <p>&copy; Company 2019</p>
       <p>Desarrollado por:</p>
       <p>Eladio Salazar Suarez</p>
-      <p>Cristian</p>
-      <p>Alejandro</p>
-      <p>Sebastian</p>
+      <p>Cristian David Quinchia Ramirez</p>
+      <p>Yesid Alejandro Pelaez</p>
+      <p>Sebastian Pulgarin Velez</p>
       
     </footer>
 

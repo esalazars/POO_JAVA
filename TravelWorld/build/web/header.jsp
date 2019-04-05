@@ -30,41 +30,59 @@
                         </c:if>
                     </li>
                     <li class="nav-item active">
-                        <!-- Iniciar Sesion-->
+                        <!-- Aerolineas-->
                         <c:if test="${!empty message}">
-                            <a class="nav-link" href="/Fly?option=login">${message["op1"]}</a>
+                            <a class="nav-link" href="/Airlines">${message["op8"]}<span class="sr-only">(current)</span></a>
                         </c:if>
                         <c:if test="${empty message}">
-                            <a class="nav-link" href="/index?option=login">${Message.ESP["op1"]}<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/Airlines">${Message.ESP["op8"]}<span class="sr-only">(current)</span></a>
                         </c:if>
                     </li>
-                    <li class="nav-item active">
-                        <!-- Registrarse-->
-                        <c:if test="${!empty message}">
-                            <a class="nav-link" href="/index?option=singup">${message["op3"]}</a>
-                        </c:if>
-                        <c:if test="${empty message}">
-                            <a class="nav-link" href="/index?option=singup">${Message.ESP["op3"]}<span class="sr-only">(current)</span></a>
-                        </c:if>
-                    </li>
-                    <li class="nav-item active">
-                        <!-- Cargar datos ficticios-->
-                        <c:if test="${!empty message}">
-                            <a class="nav-link" href="/Fictitional">${message["op6"]}</a>
-                        </c:if>
-                        <c:if test="${empty message}">
-                            <a class="nav-link" href="/Fictitional">${Message.ESP["op6"]}<span class="sr-only">(current)</span></a>
-                        </c:if>                        
-                    </li><!--
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${message["id"]}</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="/index?option=esp">${message["id1"]}</a>
-                            <a class="dropdown-item" href="/index?option=eng">${message["id2"]}</a>
-                        </div>
-                    </li>-->
+                    <c:if test="${empty usuario}">
+                        <li class="nav-item active">
+                            <!-- Iniciar Sesion-->
+                            <c:if test="${!empty message}">
+                                <a class="nav-link" href="/Client/LogIn">${message["op1"]}</a>
+                            </c:if>
+                            <c:if test="${empty message}">
+                                <a class="nav-link" href="/Client/LogIn">${Message.ESP["op1"]}<span class="sr-only">(current)</span></a>
+                            </c:if>
+                        </li>
+                        <li class="nav-item active">
+                            <!-- Registrarse-->
+                            <c:if test="${!empty message}">
+                                <a class="nav-link" href="/Client/SignUp">${message["op3"]}</a>
+                            </c:if>
+                            <c:if test="${empty message}">
+                                <a class="nav-link" href="/Client/SignUp">${Message.ESP["op3"]}<span class="sr-only">(current)</span></a>
+                            </c:if>
+                        </li>
+                    </c:if>
+                    <c:if test="${empty airlines}">
+                        <li class="nav-item active">
+                            <!-- Cargar datos ficticios-->
+                            <c:if test="${!empty message}">
+                                <a class="nav-link" href="/Fictitional">${message["op6"]}</a>
+                            </c:if>
+                            <c:if test="${empty message}">
+                                <a class="nav-link" href="/Fictitional">${Message.ESP["op6"]}<span class="sr-only">(current)</span></a>
+                            </c:if>                        
+                        </li>
+                    </c:if>
+                    <!-- Si hay usuario registrado mostrara estas opciones o al menos esa es la idea-->
+                    <c:if test="${!empty usuario}">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${message["op0"]}</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                <!--<a class="dropdown-item" href="/Client/Profile">${message["prof"]}</a>-->
+                                <a class="dropdown-item" href="/Client/CloseSession">${message["op4"]}</a>
+                                <a class="dropdown-item" href="/Client/ModifyData">${message["op5"]}</a>
+                                <!--<a class="dropdown-item" href="/Client/History">${message["op7"]}</a>-->
+                            </div>
+                        </li>                        
+                    </c:if>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="/Fly?option=searchfly">
+                <form class="form-inline my-2 my-lg-0" action="/Fly">
                     <c:if test="${!empty message}">
                         <input class="form-control mr-sm-2" type="text" placeholder="${message["b1"]}" aria-label="Search">
                     </c:if>
@@ -76,19 +94,7 @@
                     </c:if>
                     <c:if test="${empty message}">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">${Message.ESP["b"]}</button>
-                    </c:if>
-                    <!-- Si hay usuario registrado mostrara estas opciones o al menos esa es la idea-->
-                    <c:if test="${!empty login}">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${message["op0"]}</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                <a class="dropdown-item" href="/Client?option=profile">${message["prof"]}</a>
-                                <a class="dropdown-item" href="/Client?option=closeSession">${message["op4"]}</a>
-                                <a class="dropdown-item" href="/Client?option=modifyData">${message["op5"]}</a>
-                                <a class="dropdown-item" href="/Client?option=history">${message["op7"]}</a>
-                            </div>
-                        </li>
-                    </c:if>
+                    </c:if>                    
                 </form>
             </div>
         </nav>

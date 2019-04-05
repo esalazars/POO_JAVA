@@ -5,7 +5,7 @@
     <div class="jumbotron">
         <div class="container">
             <c:if test="${!empty message}">
-                <h1 class="display-3">${message["w1"]}</h1>
+                <h1 class="display-3">${message["w1"]}  <c:if test="${!empty usuario}">${usuario.getName()}</c:if></h1>
                 <p>${message["w2"]}</p>
             </c:if>
             <c:if test="${empty message}">
@@ -21,25 +21,23 @@
         <div class="row">
             <c:if test="${!empty flights}">
                 <div class="col-md-4">
-                    <h2>Vuelos</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="/Client?option=closesession" role="button">View details &raquo;</a></p>
+                    <h2>${message["op2"]}</h2>                    
+                    <p><a class="btn btn-secondary" href="/Fly" role="button">${message["f15"]} &raquo;</a></p>
                 </div>
             </c:if>  
             <c:if test="${!empty airlines}">
                 <div class="col-md-4">
-                    <h2>Aerolineas</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                    <h2>${message["op8"]}</h2>                    
+                    <p><a class="btn btn-secondary" href="./Airlines" role="button">${message["f15"]} &raquo;</a></p>
                 </div>
             </c:if>  
+            <!--
             <c:if test="${!empty clients}">
                 <div class="col-md-4">
-                    <h2>Clientes</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                    <h2>${message["load3"]}</h2>                    
+                    <p><a class="btn btn-secondary" href="./index" role="button">View details &raquo;</a></p>
                 </div>
-            </c:if>
+            </c:if>-->
 
         </div>
 

@@ -6,30 +6,32 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modules.Client;
+import modules.Airline;
+import modules.Flight;
 
-@WebServlet(urlPatterns = {"/Airlines"})
-public class Airlines extends ManageSession {
+@WebServlet(urlPatterns = {"/Client"})
+public class Clients extends ManageSession{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         setMessages(request);
         //Configurando la sesion
-        setSession(request);
-        HttpSession session = request.getSession();
-        if (session.getAttribute("Usuario") != null) {
-            Client c = new Client((Client)session.getAttribute("Usuario"));
-            session.setAttribute("Usuario", c);
-            request.setAttribute("usuario", c);
-        } 
-        RequestDispatcher view = request.getRequestDispatcher("Airline.jsp");
+         setSession(request);
+         HttpSession session = request.getSession();
+        if (session.getAttribute("usuario") != null) {
+            session.setAttribute("Usuario", session.getAttribute("Usuario"));
+            request.setAttribute("usuario", session.getAttribute("Usuario"));
+        }
+        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+        
         view.forward(request, response);  
     }
     @Override
@@ -37,14 +39,15 @@ public class Airlines extends ManageSession {
             throws ServletException, IOException {
         setMessages(request);
         //Configurando la sesion
-        setSession(request);
+         setSession(request);
+        //Verificando inicio de sesion        
         HttpSession session = request.getSession();
-        if (session.getAttribute("Usuario") != null) {
-            Client c = new Client((Client)session.getAttribute("Usuario"));
-            session.setAttribute("Usuario", c);
-            request.setAttribute("usuario", c);
-        } 
-        RequestDispatcher view = request.getRequestDispatcher("Airline.jsp");
+        if (session.getAttribute("usuario") != null) {
+            session.setAttribute("Usuario", session.getAttribute("Usuario"));
+            request.setAttribute("usuario", session.getAttribute("Usuario"));
+        }
+        RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+        
         view.forward(request, response);
     }
 }

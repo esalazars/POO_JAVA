@@ -84,7 +84,6 @@ public final class Flight {//Ya no hay herencia
         this.setSeats(seats);
         this.setAirplane(airplane);
         this.setAirline(airline);
-        this.setAirplane(airplane);
         Flight.flights.put(this.getCode(), this);
     }
         

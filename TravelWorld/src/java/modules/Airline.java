@@ -69,17 +69,16 @@ public class Airline {
         this.vuelos.put(vuelo.getCode(),vuelo);
     }
     
-    public float promCalificacion() {
+    public void promCalificacion() {
         float acum = 0;
         float prom = 0;
         // Se recorre la lista de calificaciones de
         //cada aerolínea y se calcula el promedio
-        
         for (int i = 0; i < calificaciones.size(); i++) {
             acum += calificaciones.get(i).getScore();
         }
         prom = acum / calificaciones.size();
-        return prom;
+        this.setCalPromedio(prom);
     }
     
     public void rate(float score){
