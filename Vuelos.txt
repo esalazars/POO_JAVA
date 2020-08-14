@@ -1,9 +1,7 @@
 01
 80
 200
-Medellin
-Bogota
-MDE
+
 BOG
 05-04-19
 05-04-19
